@@ -314,5 +314,8 @@
         }
     })
 
+// Mis funciones y mis cosas
+$('[data-toggle="popover"]').popover();
+
 
 })(window.jQuery);

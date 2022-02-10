@@ -85,6 +85,12 @@
                         <li class="scroll-to-section"><a href="#info">Información</a></li>
                         <li class="scroll-to-section"><a href="#">Algo más</a></li>
                         <li class="scroll-to-section"><a href="#contacto">Contacto</a></li>
+                        {% block user %}
+                        <li><a href="#" class="btn btn-large btn-primary" rel="popover"
+            data-content="<form><input type='text'/></form>"
+            data-placement="top" data-original-title="Fill in form">Open form</a>
+                        </li>
+                        {% endblock %}
                     </ul>
                     <a class="menu-trigger">
                         <span>Menú</span>
@@ -124,5 +130,6 @@
     </section>
     {% endblock %}
     {% block footer %}
+    
     {% endblock %}
 {% endblock %}

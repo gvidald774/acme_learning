@@ -168,9 +168,10 @@ body {
 }
 
 .main-button-red a:hover {
-  opacity: 0.8;
-  border-radius: 20px;
-  font-weight: 800;
+  opacity: 0.9;
+  border-radius: 25px;
+  font-weight: 500;
+  text-shadow: 0px 0px 10px white;
 }
 
 .main-button-yellow a {
@@ -528,37 +529,6 @@ header
     background: lightgray !important;
     color: orange!important;
   }
-  .header-area .main-nav .nav li.has-sub ul.sub-menu {
-    position: relative;
-    visibility: inherit;
-    opacity: 1;
-    z-index: 1;
-    transform: translateY(0%);
-    top: 0px;
-    width: 100%;
-    box-shadow: none;
-    height: 0px;
-    transition: all 0s;
-  }
-  .header-area .main-nav .nav li.submenu ul li a {
-    font-size: 12px;
-    font-weight: 400;
-  }
-  .header-area .main-nav .nav li.submenu ul li a:hover:before {
-    width: 0px;
-  }
-  .header-area .main-nav .nav li.has-sub ul.sub-menu {
-    height: auto;
-  }
-  .header-area .main-nav .nav li.has-sub:after {
-    color: slategray;
-    right: 30px;
-    font-size: 14px;
-    top: 15px;
-  }
-  .header-area .main-nav .nav li.submenu:hover ul, .header-area .main-nav .nav li.submenu:focus ul {
-    height: 0px;
-  }
 }
 
 @media (min-width: 767px) {
@@ -596,7 +566,7 @@ banner
 
 .video-overlay {
     position: absolute;
-    background-color: rgba(31,39,43,0.75);
+    background-color: rgba(50,50,50,0.85);
     top: 0;
     left: 0;
     bottom: 0;
