@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/templatemo-edu-meeting.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/owl.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/js/isotope.min.js') }}"></script>
+    <script src="{{ asset('/js/owl-carousel.min.js') }}"></script>
+    <script src="{{ asset('/js/lightbox.js') }}"></script>
+    <script src="{{ asset('/js/tabs.js') }}"></script>
+    <script src="{{ asset('/js/video.js') }}"></script>
+    <script src="{{ asset('/js/slick-slider.js') }}"></script>
+    <script src="{{ asset('/js/custom.js') }}"></script>
+    <script>
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+            var direction = section.replace(/#/, ''),
+            reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+            reqSectionPos = reqSection.offset().top - 0;
+
+            if (isAnimate) {
+                $('body, html').animate({
+                    scrollTop: reqSectionPos },800);
+            }
+            else
+            {
+                $('body, html').scrollTop(reqSectionPos);
+            }
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+          e.preventDefault();
+          showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+          checkSection();
+        });
+    </script>
+{% endblock %}
+
+{% block title %}ACME Learning - Página de Inicio{% endblock %}
+
+{% block body %}
+    {% block header %}
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="{{ path('home2') }}" class="logo">
+                            ACME Learning
+                        </a>
+                    {% block menu %}
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="#top" class="active">Inicio</a></li>
+                        {# Cambiar por path cursos cuando estén los cursos #}
+                        <li><a href="#">Cursos</a></li>
+                        <li class="scroll-to-section"><a href="#info">Información</a></li>
+                        <li class="scroll-to-section"><a href="#">Algo más</a></li>
+                        <li class="scroll-to-section"><a href="#contacto">Contacto</a></li>
+                    </ul>
+                    <a class="menu-trigger">
+                        <span>Menú</span>
+                    </a>
+                    {% endblock %}
+                </nav>
+            </div>
+        </div>
+    </header>
+    {% endblock %}
+    {% block content %}
+    <section class="section main-banner" id="top" data-section="section1">
+        <video autoplay muted loop id="bg-video">
+            <source src="{{ asset('/images/course-video.mp4') }}" type="video/mp4" />
+        </video>
+        <div class="video-overlay header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="caption">
+                            <h2>ACME Learning</h2>
+                            <h6>Tomorrow's learning solutions today</h6>
+                            <p>Aprovecha una oportunidad única de aprender e impartir de forma libre.</p>
+                            <p>¡Comienza una nueva etapa educativa en tu formación y edúcate en todo tipo de temas!</p>
+                            <p>¡Imparte lo que realmente quieres que la gente sepa!</p>
+                            <div class="main-button-red">
+                                <div>
+                                {# Esto sería el registro #}
+                                    <a href="#">Allé voy!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+    {% block footer %}
+    {% endblock %}
+{% endblock %}

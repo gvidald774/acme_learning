@@ -13,4 +13,10 @@ class PublicController extends AbstractController
     {
         return $this->render('public/index.html.twig');
     }
+
+    #[Route('/2', name: 'home2')]
+    public function index_two(): Response
+    {
+        return $this->render('public/index2.html.twig');
+    }
 }
