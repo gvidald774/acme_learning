@@ -73,15 +73,43 @@
             label: "Acepto los términos y condiciones"
         }) }}
         {% endset %}
-        {{ terminos|replace({"términos y condiciones":"<a id='modal-link' class='has-text-underline' href='#my-modal' data-toggle='modal'>términos y condiciones</a>"})|raw }}
-        <button type="submit" class="btn">Register</button>
-        <div id="my-modal" aria-hidden="true" aria-labelledby="myLargeModalLabel" class="modal fade bd-example-modal-lg" role="dialog" tabindex="-1">
+        {{ terminos|replace({"términos y condiciones":"<a id='modal-link' class='has-text-underline' href='#' data-toggle='modal' data-target='mymodal'>términos y condiciones</a>"})|raw }}
+        <a href="#" data-bs-toggle="modal" data-bs-target="#mymodal">Por probar a ver </a>
+
+        <div class="modal fade mymodal" tabindex="-1" role="dialog" aria-labelledby="mymodal" aria-hidden="true" id="mymodal">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    Términos y condiciones por defecto lorem ipsum y todo eso
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="mymodal-label">Términos y Condiciones</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>En el amanecer del quinto día, mira al oeste, pues en el oeste es donde encontrarás los términos y condiciones de este contrato.</p>
+                            <p>La vida de Tutmosis IV (1385 - 1205 BC) es una vida turbulenta, especialmente para la de un faraón. Nacido en la más absoluta pobreza, realizó su vida como pastor de camellos hasta llegar a ser el pastor de camellos oficial del faraón. Luego le envenenó y tomó su puesto.<p>
+                            <p>Pero esta no es toda la historia. A continuación, algo completamente diferente: una serie de artículos.</p>
+                            <ol>
+                                <li>La parte contratante de la primera parte será considerada como la parte contratante de la primera parte.</li>
+                                <li>La parte contratante de la segunda parte será considerada como la parte contratante de la segunda parte.</li>
+                                <li>La parte contratante de la tercera parte será considerada como la parte contratante de la tercera parte.</li>
+                                <li>La parte contratante de la cuarta parte será considerada como la parte contratante de la cuarta parte.</li>
+                                <li>La parte contratante de la quinta parte será considerada como la parte contratante de la quinta parte.</li>
+                                <li>La parte contratante de la sexta parte será considerada como la parte contratante de la sexta parte.</li>
+                                <li>La parte contratante de la séptima parte será considerada como la parte contratante de la séptima parte.</li>
+                                <li>La parte contratante de la octava parte será considerada como la parte contratante de la octava parte.</li>
+                                <li>La parte contratante de la novena parte será considerada como la parte contratante de la novena parte.</li>
+                                <li>La parte contratante de la décima parte será considerada como la parte contratante de la décima parte.</li>
+                                <li>These go up to eleven.</li>
+                            </ol>
+                            <p>Albion Online es un mmorpg no lineal, en el que escribes tu propia historia sin limitarte a seguir un camino prefijado. Explora un amplio mundo abierto con 5 biomas únicos, todo cuánto hagas tendrá su repercusión en el mundo, con la economía orientada al jugador de Albion, los jugadores crean prácticamente todo el equipo a partir de los recursos que consiguen, el equipo que llevas define quién eres, cambia de arma y armadura para pasar de caballero a mago, o juega como una mezcla de ambas clases. Aventúrate en el mundo abierto frente a los habitantes y las criaturas de Albion, inicia expediciones o adéntrate en mazmorras en las que encontrarás enemigos aún más difíciles, enfréntate a otros jugadores en encuentros en el mundo abierto, lucha por los territorios o por ciudades enteras en batallas tácticas, relájate en tu isla privada, donde podrás construir un hogar, cultivar cosechas y criar animales, únete a un gremio, todo es mejor cuando se trabaja en grupo. Adéntrate ya en el mundo de Albion y escribe tu propia historia.</p>
+                            <p>Y eso es to, eso es to, eso es todo amigos. No olviden darle a laik y a suscraif.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
     </div>
     </div>
