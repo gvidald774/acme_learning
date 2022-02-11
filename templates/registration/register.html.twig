@@ -24,32 +24,51 @@
             {{ form_errors(registrationForm) }}
         </div>
         <div class="row">
-        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.email, {
+            label: "Correo:"
+        }) }}
         </div>
         <div class="row">
-        {{ form_row(registrationForm.dni) }}
+        {{ form_row(registrationForm.dni, {
+            label: "DNI:"
+        }) }}
         </div>
         <div class="row">
-        {{ form_row(registrationForm.nombre) }}
+        {{ form_row(registrationForm.nombre, {
+            label: "Nombre:"
+        }) }}
         </div>
         <div class="row">
         <div class="col-6">
-        {{ form_row(registrationForm.apellido1) }}
+        {{ form_row(registrationForm.apellido1, {
+            label: "Apellidos:"
+        }) }}
         </div>
         <div class="col-6">
-        {{ form_row(registrationForm.apellido2) }}
+        {{ form_row(registrationForm.apellido2, {
+            label: ""
+        }) }}
         </div>
         </div>
         <div class="row">
         {{ form_row(registrationForm.password, {
-            label: 'Password'
+            label: 'Contraseña:'
         }) }}
         </div>
         <div class="row">
-        {{ form_row(registrationForm.telefono) }}
-        {{ form_row(registrationForm.localidad) }}
+        {{ form_row(registrationForm.genero, {
+            label: "Género:"
+        }) }}
+        {{ form_row(registrationForm.telefono, {
+            label: "Teléfono:"
+        }) }}
+        {{ form_row(registrationForm.localidad, {
+            label: "Localidad:"
+        }) }}
         </div>
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            label: "Acepto los <a href'='#'>términos y condiciones</a>|raw"
+        }) }}
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
     </div>

@@ -30,7 +30,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
-    #[ORM\Column(type: 'string', length: 9, unique: true)]
+    #[ORM\Column(type: 'string', length: 9, unique: true)] // Add pattern
     private $dni;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -42,7 +42,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $apellido2;
 
-    #[ORM\Column(type: 'blob', nullable: true)]
+    #[ORM\Column(type: 'blob', nullable: true)] // Change to route
     private $foto;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -61,6 +61,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
+
+    #[ORM\Column(type: 'string', length: 31, nullable: true, columnDefinition: "enum('m','f','x'")]
+    private $genero;
 
     public function __construct()
     {
@@ -290,6 +293,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getGenero(): ?string
+    {
+        return $this->genero;
+    }
+
+    public function setGenero(?string $genero): self
+    {
+        $this->genero = $genero;
 
         return $this;
     }
