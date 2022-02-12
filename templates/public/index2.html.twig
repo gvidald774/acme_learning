@@ -67,7 +67,7 @@
 
 {% block title %}ACME Learning - Página de Inicio{% endblock %}
 
-{% block body %}
+{% block content %} {# Cambiar esto al layout? Cuando se averigue lo de la cosa esa #}
     {% block header %}
     <header class="header-area header-sticky">
         <div class="container">
@@ -119,7 +119,7 @@
         </div>
     </header>
     {% endblock %}
-    {% block content %}
+    {% block contenido %}
     <section class="section main-banner" id="top" data-section="section1">
         <video autoplay muted loop id="bg-video">
             <source src="{{ asset('/images/course-video.mp4') }}" type="video/mp4" />
@@ -146,8 +146,5 @@
             </div>
         </div>
     </section>
-    {% endblock %}
-    {% block footer %}
-    
     {% endblock %}
 {% endblock %}
