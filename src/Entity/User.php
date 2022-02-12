@@ -313,4 +313,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->dni." - ".$this->nombre." ".$this->apellido1." ".$this->apellido2;
+    }
 }

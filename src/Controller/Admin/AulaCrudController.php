@@ -4,6 +4,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\Aula;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class AulaCrudController extends AbstractCrudController
 {
@@ -12,14 +17,21 @@ class AulaCrudController extends AbstractCrudController
         return Aula::class;
     }
 
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            // codigo
+            TextField::new('codigo'),
+            // capacidad
+            IntegerField::new('capacidad'),
+            // caracteristicas
+            TextareaField::new('caracteristicas'),
+            // precio_tramo
+            MoneyField::new('precio_tramo')->setCurrency('EUR')->setStoredAsCents(),
+            // activa
+            BooleanField::new('activa')
         ];
     }
-    */
+    
 }

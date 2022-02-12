@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -25,13 +24,13 @@ class UserCrudController extends AbstractCrudController
             // email
             EmailField::new('email'),
             // roles
-            ChoiceField::new('roles')->allowMultipleChoices()->setChoices([
+            /*ChoiceField::new('roles')->allowMultipleChoices()->setChoices([
                 'Roles' => [
                     'Admin' => 'Admin',
                     'Profesor' => 'Profesor',
                     'Alumno' => 'Alumno',
                 ]
-            ]),
+            ]),*/
             // password
             TextField::new('password'),
             // dni
@@ -53,13 +52,12 @@ class UserCrudController extends AbstractCrudController
             // lo mismo de arriba
             // genero
             ChoiceField::new('genero')->setChoices([
-                'Géneros' => [
+                //'Géneros' => [
                     'Masculino' => 'M',
                     'Femenino' => 'F',
                     'Otros' => 'X',
-                    'Prefiero no decirlo' => '',
-                ]
-            ]),
+                //]
+            ])->renderExpanded(),
             // isVerified
             BooleanField::new('isVerified'),
         ];
