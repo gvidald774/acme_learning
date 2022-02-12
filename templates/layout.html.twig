@@ -4,6 +4,36 @@
     {% block header %}
     {# Aquí podríamos meter un condicional de si está logueado o no #}
     {% endblock %}
+    {% block content %}
+    {% endblock %}
     {% block footer %}
+    <footer>
+        <div id="legal" class="col-4">
+            <ul>
+                <li>Partes contratantes</li>
+                <li>Lo de las cookies</li>
+                <li>El que tengo aquí colgado</li>
+                <li>Política de privacidad</li>
+                <li>Términos y Condiciones</li>
+            </ul>
+        </div>
+        <div id="enlaces" class="col-4">
+            <ul>Catálogo por ejemplo</ul>
+            <ul>Algo de la prensa</ul>
+            <ul>Yo qué sé cuatro mierdas</ul>
+        </div>
+        <div id="contacto" class="col-4">
+            <div class="row">
+                <ul>
+                    <li>Dirección</li>
+                    <li>Teléfono con su iconito</li>
+                    <li>Correo electrónico</li>
+                </ul>
+            </div>
+            <div class="row">
+                <p>Aquí lo que hay son los iconitos de las redes sociales</p>
+            </div>
+        </div>
+    </footer>
     {% endblock %}
 {% endblock %}
