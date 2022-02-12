@@ -10,6 +10,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+use App\Validator as AcmeAssert;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
@@ -30,7 +33,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
-    #[ORM\Column(type: 'string', length: 9, unique: true)] // Add pattern
+    #[ORM\Column(type: 'string', length: 9, unique: true)]
+    #[Assert\NotBlank]
+    #[AcmeAssert\dni_valido(options: ['mode' => 'loose'])]
     private $dni;
 
     #[ORM\Column(type: 'string', length: 255)]
