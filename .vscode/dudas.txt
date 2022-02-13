@@ -2,3 +2,4 @@
 * Header -> Quiero que ocupe su sitio y que no esté por encima de lo otro (solapamiento)
 * Footer -> Cómo pongo el texto a la izquierda pero centrado... a la vez
 * Cómo hacer que compruebe el DNI en el backend también (tengo el custom validator este)
+* Compatibilidad del symfony forms con un formulario de varias páginas y complejidad impresionante

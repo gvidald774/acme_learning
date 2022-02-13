@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Hello CreaCursoController!{% endblock %}
+
+{% block content %}
+    <h1>Nuevo curso</h1>
+    {# Aquí irían tres divs que se van abriendo y ocultando con javascript con las distintas páginas y el display este raro #}
+    {# Tengo que montar un javascript #}
+    <div class="navegacion">
+        {# Aquí se pone lo de las páginas #}
+    </div>
+    <form> {# con cosas #}
+        <div class="paginaFormulario" id="pagina1">
+            <label for="titulo">Título: <input type="text" name="titulo" /></label>
+            {# Más cambios #}
+        </div>
+        <div class="paginaFormulario" id="pagina2">
+            {# Aquí va el mapa de la escuela con el plugin1 #}
+            {# Aquí va el calendario ese con el plugin2 #}
+        </div>
+        <div class="paginaFormulario" id="pagina3">
+            {# Aquí van los campos de texto grandes y tochos #}
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="{{ asset('js/creaCurso.js') }}"></script>
+{% endblock %}
