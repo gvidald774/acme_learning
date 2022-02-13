@@ -237,7 +237,7 @@ header
 }
 
 .header-area {
-  background-color: rgba(250,250,250,0.15);
+  background-color: #C02F1B;
   position: absolute;
   top: 0px;
   left: 0;
@@ -495,7 +495,7 @@ header
     overflow: hidden;
   }
   .header-area .main-nav .nav {
-    float: none;
+    /*float: none;*/
     width: 100%;
     display: none;
     -webkit-transition: all 0s ease 0s;
