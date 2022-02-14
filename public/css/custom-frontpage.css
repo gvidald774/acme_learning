@@ -36,3 +36,7 @@ div {
 .bg-ruby p {
     color: lightgray;
 }
+
+.ocultar {
+    display: none;
+}
