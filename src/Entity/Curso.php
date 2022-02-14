@@ -70,6 +70,9 @@ class Curso
     #[ORM\OneToMany(mappedBy: 'curso', targetEntity: Grupo::class, orphanRemoval: true)]
     private $grupos;
 
+    #[ORM\Column(type: 'text')]
+    private $descripcion;
+
     public function __construct()
     {
         $this->grupos = new ArrayCollection();
@@ -310,6 +313,18 @@ class Curso
                 $grupo->setCurso(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(string $descripcion): self
+    {
+        $this->descripcion = $descripcion;
 
         return $this;
     }
