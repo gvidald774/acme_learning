@@ -1,0 +1,38 @@
+.info-centrar {
+    margin: auto;
+}
+
+.rounded-5 {
+    border-radius: 30px;
+}
+
+.parallax-1 {
+    background-image: url('../images/facts-bg.jpg');
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax-2 {
+    background-image: url('../images/apply-bg.jpg');
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.bg-ruby {
+    background-color: maroon;
+    color: lightgray;
+}
+
+.bg-ruby p {
+    color: lightgray;
+}

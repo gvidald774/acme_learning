@@ -1293,19 +1293,21 @@ section.contact-us .right-info ul li span {
   font-weight: 700;
 }
 
-.footer {
+footer {
   text-align: center;
   margin-top: 140px;
   border-top: 1px solid rgba(250,250,250,0.15);
   padding: 50px 0px;
+  background-color: rgba(50,50,50);
+  color: lightgray;
 }
-.footer p {
+footer p {
   text-transform: uppercase;
   font-size: 14px;
-  color: #fff;
+  color: lightgray;
 }
 
-.footer p a {
+footer p a {
   color: #f5a425;
 }
 

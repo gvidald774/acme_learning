@@ -1,5 +1,10 @@
 {% extends 'layout.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/custom-frontpage.css') }}" />
+{% endblock %}
+
 {% block title %}ACME Learning - Página de Inicio{% endblock %}
 
 {% block content %}
@@ -29,8 +34,199 @@
         </div>
     </section>
     {# Información texto #}
-    {# Información texto al otro lado #}
+    <section id="info-title" class=" w-75 my-5">
+        <h1>Informaciones</h1>
+    </section>
+    <section id="info-content" class="info-centrar parallax-1">
+    <div class="w-75 info-centrar p-5">
+        <div class="row bg-light m-5 p-5 rounded-5">
+            <div class="col-9 my-auto">
+                <p class="lead lh-lg mb-5">Hola esta es información sobre esta institución educativa, apoyamos el conocimiento y todo eso también y mira qué guay la foto que tenemos aquí al lado venga un abrazo</p>
+                <p class="lead lh-lg mb-5">Y este es un segundo párrafo por si acaso</p>
+            </div>
+            <div class="col-3 my-auto">
+                <img src="{{ asset('/images/course-01.jpg') }}" />
+            </div>
+        </div>
+        <div class="row bg-light m-5 p-5 rounded-5">
+            <div class="col-3 my-auto">
+                <img src="{{ asset('/images/course-02.jpg') }}" />
+            </div>
+            <div class="col-9 my-auto">
+                <p class="lead lh-lg mb-5">Este es un segundo asunto sobre la imagen que tenemos, esta vez a la izquierda, no a la derecha. Si estuviera a la izquierda, sería lo de arriba.</p>
+                <p class="lead lh-lg mb-5">Pero claro, lo suyo es que este segundo párrafo sea asimétrico de una manera muy simétrica, porque eso queda muy bien en lo del diseño de una página y tal. ¿No? No sé. Pregunto.</p>
+    </div>
+    </section>
     {# Galería #}
-    {# Paneles chupifantásticos #}
-    {# Testimonios #}
+    <!--<section id="galeria">
+        <div class="row">
+            <h2>Galería</h2>
+            <div class="col-lg-12">
+            <div class="owl-service-item owl-carousel">
+                <div class="item">
+                    <div class="icon">
+                        <img src="{{ asset('/images/front.jpg') }}">
+                    </div>
+                    <div class="down-content">
+                        <h4>Edificios con clase</h4>
+                        <p>La arquitectura por sí sola ya misma en sí misma como que suelta ahí una cosa, ¿no?, como un mensaje, en plan, pues... eso.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="icon">
+                        <img src="{{ asset('/images/study-hall.jpg') }}">
+                    </div>
+                    <div class="down-content">
+                        <h4>Amplias zonas comunes</h4>
+                        <p>Zonas maravillosas donde congeniar con tus compañeros estudiantes, estudiar, terminar trabajos de última hora, comerse unas pipas, ser perseguido por el servicio de limpieza, esconderse del siniestro conserje del turno de noche, etcétera.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="icon">
+                        <img src="{{ asset('/images/conference-class.jpg') }}">
+                    </div>
+                    <div class="down-content">
+                        <h4>Clases modernas</h4>
+                        <p>Clases dispuestas para la comodidad y atención de los asistentes.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="icon">
+                        <img src="{{ asset('/images/art-thingy.jpg') }}">
+                    </div>
+                    <div class="down-content">
+                        <h4>Diversidad de formatos</h4>
+                        <p>Instalaciones de todo tipo para clases de todo tipo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>-->
+    <section id="galeria mx-auto">
+        <div id="carrusel_deportivo" class="carousel slide w-50 mx-auto" data-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carrusel_deportivo" data-bs-slide-to="0" class="active" aria-current="true"></li>
+                <button type="button" data-bs-target="#carrusel_deportivo" data-bs-slide-to="1"></li>
+                <button type="button" data-bs-target="#carrusel_deportivo" data-bs-slide-to="2"></li>
+                <button type="button" data-bs-target="#carrusel_deportivo" data-bs-slide-to="3"></li>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{ asset('/images/front.jpg') }}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Edificios con clase</h5>
+                        <p>La arquitectura por sí sola ya misma en sí misma como que suelta ahí una cosa, ¿no?, como un mensaje, en plan, pues... eso.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('/images/study-hall.jpg') }}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Amplias zonas comunes</h5>
+                        <p>Zonas maravillosas donde congeniar con tus compañeros estudiantes, estudiar, terminar trabajos de última hora, comerse unas pipas, ser perseguido por el servicio de limpieza, esconderse del siniestro conserje del turno de noche, etcétera.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('/images/conference-class.jpg') }}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Clases modernas</h5>
+                        <p>Clases dispuestas para la comodidad y atención de los asistentes.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('/images/art-thingy.jpg') }}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Diversidad de formatos</h5>
+                        <p>Instalaciones de todo tipo, para cursos de todo tipo.</p5>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carrusel_deportivo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carrusel_deportivo" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+        </div>
+    </section>
+    {# Paneles chupifantásticos - cambiar color a rojo #}
+    <section id="paneles" class="parallax-2 d-flex justify-content-evenly">
+        <div class="col-3 panel-info bg-ruby p-5 my-5">
+            <img src="{{ asset('images/meeting-01.jpg')}}">
+            <h5>Lecciones de importancia</h5>
+            <p>Ofrecemos lecciones de importancia y sitios para que tomes los apuntes sentadico o sentadica.</p>
+        </div>
+        <div class="col-3 panel-info bg-ruby p-5 my-5">
+            <img src="{{ asset('images/meeting-02.jpg')}}">
+            <h5>Variedad de clases</h5>
+            <p>Ofrecemos clases de todos los tamaños y formatos.</p>
+        </div>
+        <div class="col-3 panel-info bg-ruby p-5 my-5">
+            <img src="{{ asset('images/meeting-03.jpg')}}">
+            <h5>Espacios abiertos</h5>
+            <p>Pa que camines.</p>
+        </div>
+        <!--<div class="col-3 panel-info bg-light p-5 my-5">
+            <img src="{{ asset('images/meeting-04.jpg')}}">
+            <p>Blablabla lo mismo que dice en el otro extremo</p>
+        </div>-->
+    </section>
+    {# Testimonios: Otro gallery o algo supongo sí #}
+    {# Formulario de contacto #}
+    <section class="contact-us" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 align-self-center mb-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form id="contact" action="" method="post">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h2>Contacta con nosotros:</h2>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <fieldset>
+                                            <input name="name" type="text" id="name" placeholder="Nombre..." required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <fieldset>
+                                            <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*.[^ @]*" placeholder="Correo..." required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <fieldset>
+                                            <input name="subject" type="text" id="subject" placeholder="Asunto..." required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <textarea name="message" type="text" class="form-control" id="message" placeholder="Mensaje..." required=""></textarea>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="button">Enviar mensaje</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="right-info">
+                        {# Poner el mapa #}
+                        <p>Teléfono: 010-020-0340</p>
+                        <p>Correo: info@acmelearning.com</p>
+                        <p>Dirección:blablabla</p>
+                        <p><span>Y aquí pues iría el mapa sabe usted un mapa con el sitio donde está esto y tal y pascual</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 {% endblock %}
