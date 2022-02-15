@@ -114,43 +114,48 @@
             </div>
         </div>
     </header>
+    <div style="height: 80px;">If you can read this, something has gone terribly wrong.</div>
     {% endblock %}
     {% block content %}
     {% endblock %}
     {% block footer %}
     <footer class="row p-5 text-center"> {# Decorar las listas y poner eso a la izquierda pero centrao???? #}
-        <div id="legal" class="col-4 border-end">
-            <ul class="text-start">
-                <li>Partes contratantes</li>
-                <li>Lo de las cookies</li>
-                <li>El que tengo aquí colgado</li>
-                <li>Política de privacidad</li>
-                <li>Términos y Condiciones</li>
-            </ul>
-        </div>
-        <div id="enlaces" class="col-4 border-end">
-            <ul class="text-start">
-                <li>Catálogo por ejemplo</li>
-                <li>Algo de la prensa</li>
-                <li>Yo qué sé cuatro mierdas</li>
-            </ul>
-        </div>
-        <div id="contacto" class="col-4">
-            <div class="row text-start">
-                <ul>
-                    <li>Dirección</li>
-                    <li>Teléfono con su iconito</li>
-                    <li>Correo electrónico</li>
+        <div class="d-flex justify-content-evenly">
+            <div id="legal" class="px-5">
+                <ul class="text-start">
+                    <li>Partes contratantes</li>
+                    <li>Lo de las cookies</li>
+                    <li>El que tengo aquí colgado</li>
+                    <li>Política de privacidad</li>
+                    <li>Términos y Condiciones</li>
                 </ul>
             </div>
-            <div class="row text-start">
-                <p class="fs-4">
-                    <i class="fa fa-facebook"></i> 
-                    <i class="fa fa-twitter"></i> 
-                    <i class="fa fa-instagram"></i> 
-                    <i class="fa fa-pinterest"></i> 
-                    <i class="fa fa-linkedin"></i>
-                </p>
+            <div class="vr"></div>
+            <div id="enlaces" class="px-5">
+                <ul class="text-start">
+                    <li>Catálogo por ejemplo</li>
+                    <li>Algo de la prensa</li>
+                    <li>Yo qué sé cuatro mierdas</li>
+                </ul>
+            </div>
+            <div class="vr"></div>
+            <div id="contacto" class="px-5">
+                <div class="row text-start">
+                    <ul>
+                        <li>Dirección</li>
+                        <li>Teléfono con su iconito</li>
+                        <li>Correo electrónico</li>
+                    </ul>
+                </div>
+                <div class="row text-start">
+                    <p class="fs-4">
+                        <i class="fa fa-facebook"></i> 
+                        <i class="fa fa-twitter"></i> 
+                        <i class="fa fa-instagram"></i> 
+                        <i class="fa fa-pinterest"></i> 
+                        <i class="fa fa-linkedin"></i>
+                    </p>
+                </div>
             </div>
         </div>
     </footer>

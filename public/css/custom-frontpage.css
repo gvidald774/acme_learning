@@ -40,3 +40,8 @@ div {
 .ocultar {
     display: none;
 }
+
+.carousel-caption h5, .carousel-caption p {
+    color: #fff;
+    text-shadow: 0px 0px 2px black;
+}
