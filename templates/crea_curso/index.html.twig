@@ -8,7 +8,6 @@
 {% block title %}Hello CreaCursoController!{% endblock %}
 
 {% block content %}
-    <br/><br/><br/><br/><br/><br/><br/>
     <h1>Nuevo curso</h1>
     {# Aquí irían tres divs que se van abriendo y ocultando con javascript con las distintas páginas y el display este raro #}
     {# Tengo que montar un javascript #}
@@ -16,10 +15,10 @@
         {# Aquí se pone lo de las páginas #}
         <div class="container">
             <div class="text-center">
-                <ul class="pagination pagination-lg">
-                    <li><a href="#" id="pagination1">1</a></li>
-                    <li><a href="#" id="pagination2">2</a></li>
-                    <li><a href="#" id="pagination3">3</a></li>
+                <ul class="pagination pagination-lg d-flex justify-content-around">
+                    <li class="page-item rounded-circle"><a class="page-link rounded-circle" href="#" id="pagination1">1</a></li>
+                    <li class="page-item rounded-circle"><a class="page-link rounded-circle" href="#" id="pagination2">2</a></li>
+                    <li class="page-item rounded-circle"><a class="page-link rounded-circle" href="#" id="pagination3">3</a></li>
                 </ul>
             </div>
         </div>
@@ -30,6 +29,7 @@
                 <label for="titulo">Título: <input type="text" name="titulo" /></label>
                 {# Más cambios #}
                 <p>Aquí sobre todo hay más formularios y tal.</p>
+                <button type="button" id="a_pag2">Siguiente</button>
             </div>
             <div class="paginaFormulario ocultar" id="pagina2">
                 {# Aquí va el mapa de la escuela con el plugin1 #}
@@ -132,7 +132,8 @@
                     <area target="" alt="G-P2" title="G-P2" href="G-P2" coords="478,203,401,131" shape="rect">
                 </map>
                 {# Aquí va el calendario ese con el plugin2 #}
-                <p>Hola, aquí iría un calendario.
+                <p>Hola, aquí iría un calendario.</p>
+                <button type="button" id="a_pag3">Siguiente</button>
             </div>
             <div class="paginaFormulario ocultar" id="pagina3">
                 {# Aquí van los campos de texto grandes y tochos #}
@@ -151,5 +152,6 @@
 {{ parent() }}
 <script src="{{ asset('mapper/mapper.js') }}"></script>
 <script src="{{ asset('calendar/lib/main.js') }}"></script>
+<script src="{{ asset('js/jwdim/jquery.rwdImageMaps.min.js') }}"></script>
 <script src="{{ asset('js/creaCurso.js') }}"></script>
 {% endblock %}

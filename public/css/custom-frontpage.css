@@ -45,3 +45,8 @@ div {
     color: #fff;
     text-shadow: 0px 0px 2px black;
 }
+
+.activado {
+    background-color: maroon;
+    color: lightgray;
+}
