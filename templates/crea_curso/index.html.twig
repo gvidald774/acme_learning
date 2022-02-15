@@ -5,7 +5,7 @@
 <link rel="stylesheet" src="{{ asset('css/custom-frontpage.css') }}">
 {% endblock %}
 
-{% block title %}Hello CreaCursoController!{% endblock %}
+{% block title %}Nuevo curso{% endblock %}
 
 {% block content %}
     <h1>Nuevo curso</h1>
@@ -27,8 +27,18 @@
         <form> {# con cosas #}
             <div class="paginaFormulario mostrar" id="pagina1">
                 <label for="titulo">Título: <input type="text" name="titulo" /></label>
-                {# Más cambios #}
-                <p>Aquí sobre todo hay más formularios y tal.</p>
+                <label for="descripcion">Descripción: <input type="textEditor" name="descripcion" /></label>
+                <div id="row">
+                    <div class="col-3">
+                        <p>Inscripción</p>
+                        <label for="f_ini_inscripcion">Inicio: <input type="datetime" name="f_ini_inscripcion"></label>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                    </div>
                 <button type="button" id="a_pag2">Siguiente</button>
             </div>
             <div class="paginaFormulario ocultar" id="pagina2">

@@ -2,6 +2,28 @@
 
 {% block title %}Hello CatalogoCursosController!{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/custom-frontpage.css') }}" />
+{% endblock %}
+
 {% block content %}
-<p>Hola. Aquí tendría que ir el catálogo de cursos, pero si no puedo acceder a los cursos no puedo verlos.</p>
+
+<h1>Catálogo de cursos</h1>
+<div class="row m-5">
+    <section id="filtros" class="col-3 border border-dark bg-ruby p-5">
+        <p>Y aquí pondría varias cositas para filtrar y tal y pascual.</p>
+    </section>
+    <div class="col-1"></div>
+    <section id="cursos" class="col-8 border border-dark p-5">
+        {# Y aquí irían los cursos, que quizá lo suyo es pillarlos por AJAX. #}
+        <p>Hola soy un curso</p>
+    </section>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/carga_cursos.js') }}"></script>
 {% endblock %}
