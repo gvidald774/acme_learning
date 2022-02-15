@@ -26,6 +26,8 @@ class CursoCrudController extends AbstractCrudController
         return [
             // titulo
             TextField::new('titulo'),
+            // descripcion
+            TextEditorField::new('descripcion'),
             // f_ini_inscripcion
             DateTimeField::new('f_ini_inscripcion'),
             // f_fin_inscripcion
@@ -49,7 +51,7 @@ class CursoCrudController extends AbstractCrudController
             // requisitos
             TextEditorField::new('requisitos'),
             // categoria
-            /*ChoiceField::new('categoria')->setChoices(
+            ChoiceField::new('categoria')->setChoices(
                 [
                     '000 - Ciencias de la Computación, Información y Obras Generales' => 0,
                     '100 - Filosofía y Psicología' => 1,
@@ -60,9 +62,9 @@ class CursoCrudController extends AbstractCrudController
                     '600 - Tecnología y Ciencias Aplicadas' => 6,
                     '700 - Artes y Recreación' => 7,
                     '800 - Literatura' => 8,
-                    '900 - Historia y Geografía' => 9.
+                    '900 - Historia y Geografía' => 9,
                 ]
-                ),*/
+                ),
             // precio
             MoneyField::new('precio')->setCurrency('EUR')->setStoredAsCents(),
             // horas

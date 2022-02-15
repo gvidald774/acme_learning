@@ -24,13 +24,13 @@ class UserCrudController extends AbstractCrudController
             // email
             EmailField::new('email'),
             // roles
-            /*ChoiceField::new('roles')->allowMultipleChoices()->setChoices([
-                'Roles' => [
+            ChoiceField::new('roles')->allowMultipleChoices()->setChoices([
+                //'Roles' => [
                     'Admin' => 'Admin',
                     'Profesor' => 'Profesor',
                     'Alumno' => 'Alumno',
-                ]
-            ]),*/
+                //]
+            ]),
             // password
             TextField::new('password'),
             // dni
@@ -42,7 +42,7 @@ class UserCrudController extends AbstractCrudController
             // apellido2
             TextField::new('apellido2'),
             // foto
-            ImageField::new('foto')->setUploadDir('assets/images'),
+            ImageField::new('foto')->setUploadDir('assets\images'),
             // AÑADIR PAÍS (?)
             // localidad
             TextField::new('localidad'),
