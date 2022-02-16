@@ -50,3 +50,13 @@ div {
     background-color: maroon;
     color: lightgray;
 }
+
+.activado:focus {
+    background-color: #C02F1B;
+    color: lightgray;
+}
+
+.activado:hover {
+    background-color: #DC321B;
+    color: white;
+}

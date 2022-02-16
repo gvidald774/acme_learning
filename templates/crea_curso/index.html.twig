@@ -2,7 +2,8 @@
 
 {% block stylesheets %}
 {{ parent() }}
-<link rel="stylesheet" src="{{ asset('css/custom-frontpage.css') }}">
+<link rel="stylesheet" href="{{ asset('css/custom-frontpage.css') }}">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 {% endblock %}
 
 {% form_theme form 'bootstrap_5_layout.html.twig' %}
@@ -175,6 +176,7 @@
 
 {% block javascripts %}
 {{ parent() }}
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script src="{{ asset('mapper/mapper.js') }}"></script>
 <script src="{{ asset('calendar/lib/main.js') }}"></script>
 <script src="{{ asset('js/jwdim/jquery.rwdImageMaps.min.js') }}"></script>

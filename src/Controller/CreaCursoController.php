@@ -24,14 +24,54 @@ class CreaCursoController extends AbstractController
         $form = $this->createFormBuilder($curso)
             ->add('titulo', TextType::class)
             ->add('descripcion', CKEditorType::class)
-            ->add('f_ini_inscripcion', DateTimeType::class)
-            ->add('f_fin_inscripcion', DateTimeType::class) 
-            ->add('f_ini_reclamacion', DateTimeType::class) 
-            ->add('f_fin_reclamacion', DateTimeType::class) 
-            ->add('f_ini_baja', DateTimeType::class) 
-            ->add('f_fin_baja', DateTimeType::class) 
-            ->add('f_ini_curso', DateTimeType::class) 
-            ->add('f_fin_curso', DateTimeType::class)
+            ->add('f_ini_inscripcion', DateTimeType::class,
+            [
+                'widget' => 'single_text',
+                'data' => new \DateTime(),
+                'html5' => false,
+            ])
+            ->add('f_fin_inscripcion', DateTimeType::class,
+            [
+                'widget' => 'single_text',
+                'data' => new \DateTime(),
+                'html5' => false,
+            ]) 
+            ->add('f_ini_reclamacion', DateTimeType::class,
+            [
+                'widget' => 'single_text',
+                'data' => new \DateTime(),
+                'html5' => false,   
+            ])
+            ->add('f_fin_reclamacion', DateTimeType::class,
+            [
+                'widget' => 'single_text',
+                'data' => new \DateTime(),
+                'html5' => false,
+            ])
+            ->add('f_ini_baja', DateTimeType::class,
+            [
+                'widget' => 'single_text',
+                'data' => new \DateTime(),
+                'html5' => false,   
+            ])
+            ->add('f_fin_baja', DateTimeType::class,
+            [
+                'widget' => 'single_text',
+                'data' => new \DateTime(),
+                'html5' => false,    
+            ])
+            ->add('f_ini_curso', DateTimeType::class,
+            [
+                'widget' => 'single_text',
+                'data' => new \DateTime(),
+                'html5' => false,    
+            ])
+            ->add('f_fin_curso', DateTimeType::class,
+            [
+                'widget' => 'single_text',
+                'data' => new \DateTime(),
+                'html5' => false,
+            ])
             ->add('categoria', ChoiceType::class, 
             [
                 'choices' => [
