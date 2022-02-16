@@ -1,6 +1,7 @@
 $(function()
 {
-    $('img[usemap]').rwdImageMaps();
+
+    var paginaDosMostradaPorPrimeraVez = false;
     
     $.fn.activar = function()
     {
@@ -22,7 +23,6 @@ $(function()
     {
         ev.preventDefault();
         muestraPagina(2);
-
     })
     $("#pagination3").on("click", function(ev)
     {
@@ -54,6 +54,14 @@ $(function()
     {
         $("div[id^=pagina]").hide();
         $("#pagina"+id).show();
+        if(id==2)
+        {
+            if(paginaDosMostradaPorPrimeraVez == false)
+            {
+                $('img[usemap]').rwdImageMaps();
+                paginaDosMostradaPorPrimeraVez = true;
+            }
+        }
     }
 
 })
