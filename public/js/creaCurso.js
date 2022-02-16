@@ -1,5 +1,6 @@
 $(function()
 {
+    $("input[id^=form_f]").val('');
 
     // Controles de paginación
 
@@ -67,8 +68,7 @@ $(function()
     // Ah y que no te deje pasar la página hasta que los valores estén correctos
     // (fechas en su sitio, todo escrito, etcétera)
 
-    var dateFormat = "yyyy/mm/dd",
-        from = $("input[id^=form_f_ini]")
+    /*    from = $("input[id^=form_f_ini]")
             .datepicker({
                 minDate: 0,
                 defaultDate: "+1w",
@@ -183,11 +183,143 @@ $(function()
         }
         return date;
     }
+    */
+
+    // GESTIÓN DE FECHAS
+
+    $("#form_f_ini_inscripcion").datetimepicker({
+        lang: 'es',
+        dayOfWeekStart: 1,
+        startDate: '+7',
+        format:'Y-m-d H:i',
+        minDate:0,
+        onShow:function(ct)
+        {
+            this.setOptions({
+                maxDate:$("#form_f_fin_inscripcion").val()?$("#form_f_fin_inscripcion").val():false
+            })
+        }
+    });
+    $("#form_f_fin_inscripcion").datetimepicker({
+        lang: 'es',
+        dayOfWeekStart: 1,
+        startDate: '+7',
+        format:'Y-m-d H:i',
+        minDate:0,
+        onShow:function(ct)
+        {
+            this.setOptions({
+                minDate:$("#form_f_ini_inscripcion").val()?$("#form_f_ini_inscripcion").val():false,
+                maxDate:$("#form_f_ini_reclamacion").val()?$("#form_f_ini_reclamacion").val():false
+            })
+        }
+    });
+    $("#form_f_ini_reclamacion").datetimepicker({
+        lang: 'es',
+        dayOfWeekStart: 1,
+        startDate: '+7',
+        format:'Y-m-d H:i',
+        minDate:0,
+        onShow:function(ct)
+        {
+            this.setOptions({
+                minDate:$("#form_f_fin_inscripcion").val()?$("#form_f_fin_inscripcion").val():false,
+                maxDate:$("#form_f_fin_reclamacion").val()?$("#form_f_fin_reclamacion").val():false
+            })
+        }
+    });
+    $("#form_f_fin_reclamacion").datetimepicker({
+        lang: 'es',
+        dayOfWeekStart: 1,
+        startDate: '+7',
+        format:'Y-m-d H:i',
+        minDate:0,
+        onShow:function(ct)
+        {
+            this.setOptions({
+                minDate:$("#form_f_ini_reclamacion").val()?$("#form_f_ini_reclamacion").val():false,
+                maxDate:$("#form_f_ini_curso").val()?$("#form_f_ini_curso").val():false
+            })
+        }
+    });
+    $("#form_f_ini_baja").datetimepicker({
+        lang: 'es',
+        dayOfWeekStart: 1,
+        startDate: '+7',
+        format:'Y-m-d H:i',
+        minDate:0,
+        onShow:function(ct)
+        {
+            this.setOptions({
+                minDate:$("#form_f_fin_inscripcion").val()?$("#form_f_fin_inscripcion").val():false,
+                maxDate:$("#form_f_fin_baja").val()?$("#form_f_fin_baja").val():false
+            })
+        }
+    });
+    $("#form_f_fin_baja").datetimepicker({
+        lang: 'es',
+        dayOfWeekStart: 1,
+        startDate: '+7',
+        format:'Y-m-d H:i',
+        minDate:0,
+        onShow:function(ct)
+        {
+            this.setOptions({
+                minDate:$("#form_f_ini_baja").val()?$("#form_f_ini_baja").val():false,
+                maxDate:$("#form_f_fin_curso").val()?$("#form_f_fin_curso").val():false
+            })
+        }
+    });
+    $("#form_f_ini_curso").datetimepicker({
+        lang: 'es',
+        dayOfWeekStart: 1,
+        startDate: '+7',
+        format:'Y-m-d H:i',
+        allowTimes:[
+            '08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30',
+            '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30',
+            '18:00','18:30','19:00','19:30','20:00','20:30','21:00','21:30'
+        ],
+        minDate:0,
+        onShow:function(ct)
+        {
+            this.setOptions({
+                minDate:$("#form_f_fin_reclamacion").val()?$("#form_f_fin_reclamacion").val():false,
+                maxDate:$("#form_f_fin_curso").val()?$("#form_f_fin_curso").val():false
+            })
+        }
+    });
+    $("#form_f_fin_curso").datetimepicker({
+        lang: 'es',
+        dayOfWeekStart: 1,
+        startDate: '+7',
+        format:'Y-m-d H:i',
+        allowTimes:[
+            '08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30',
+            '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30',
+            '18:00','18:30','19:00','19:30','20:00','20:30','21:00','21:30','22:00'
+        ],
+        minDate:0,
+        onShow:function(ct)
+        {
+            this.setOptions({
+                minDate:$("#form_f_ini_curso").val()?$("#form_f_ini_baja").val():false
+            })
+        }
+    });
+
+    // CALENDARIO
+    var divCalendario = document.getElementById("calendario1");
+    var calendar = new FullCalendar.Calendar(divCalendario, {
+        initialView: 'dayGridMonth'
+    });
+    calendar.render();
+    
 
     function validaFechas()
     {
         var todoCorrecto = true;
-        console.log(getDate(form_f_ini_inscripcion));
+        console.log($("#form_f_ini_inscripcion").datetimepicker('getValue'));
 
         return todoCorrecto;
     }
