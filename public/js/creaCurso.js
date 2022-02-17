@@ -34,8 +34,8 @@ $(function()
     // Controles de agrupación
     $("#add_group").on("click",function()
     {
-        var nuevoGrupo = $("<li><input type='text' /></li>")
-            .on("keypress", input_to_text);
+        // Cambiar por estructura como tal, esto es basura.
+        var nuevoGrupo = $("<li><input type='color' /><input type='text' /></li>").children(1).on("keypress",input_to_text);
 
         $(nuevoGrupo).insertBefore(this);
 
@@ -44,9 +44,10 @@ $(function()
             if(event.key == "Enter")
             {
                 // Lo convertimos en texto plano.
-                if($(this).children().val() != "")
+                console.log("Qué "+$(this).children(1).val());
+                if($(this).children(1).val() != "")
                 {
-                    var valor = $(this).children().val();
+                    var valor = $(this).children(1).val();
 
                     $(this).html(valor);
                     // Habría que añadirle un color picker pero eso para luego.
