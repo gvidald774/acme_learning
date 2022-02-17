@@ -2,6 +2,29 @@ $(function()
 {
     $("input[id^=form_f]").val('');
 
+        // CALENDARIO
+        var divCalendario = document.getElementById("calendario1");
+        var calendar = new FullCalendar.Calendar(divCalendario, {
+            initialView: 'timeGridWeek',
+            eventMinHeight: 30,
+            allDaySlot: false,
+            slotDuration: '00:30:00',
+            slotMinTime: "08:00:00",
+            slotMaxTime: "22:00:00",
+            selectable: true,
+            selectMirror: true,
+            unselectAuto: false,
+            selectOverlap: false,
+            select: function(info)
+            {
+                alert("Se ha seleccionado "+info.startStr + ' a ' + info.endStr);
+            }
+        });
+        calendar.render();
+    
+        // los trozos de calendario no se pondrán en gris, serán eventos propios "ajenos" para que funcione selectOverlap
+    
+
     // Controles de paginación
 
     var paginaDosMostradaPorPrimeraVez = false;
@@ -24,6 +47,7 @@ $(function()
     {
         ev.preventDefault();
         muestraPagina(2);
+        calendar.render();
     })
     $("#pagination3").on("click", function(ev)
     {
@@ -41,6 +65,7 @@ $(function()
         ev.preventDefault();
         muestraPagina(2);
         $("#pagination2").activar();
+        calendar.render();
     })
 
     $("button#a_pag3").on("click",function(ev) {
@@ -308,13 +333,6 @@ $(function()
         }
     });
 
-    // CALENDARIO
-    var divCalendario = document.getElementById("calendario1");
-    var calendar = new FullCalendar.Calendar(divCalendario, {
-        initialView: 'dayGridMonth'
-    });
-    calendar.render();
-    
 
     function validaFechas()
     {

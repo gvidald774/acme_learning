@@ -60,3 +60,7 @@ div {
     background-color: #DC321B;
     color: white;
 }
+
+.calendar {
+    min-height: 500px;
+}
