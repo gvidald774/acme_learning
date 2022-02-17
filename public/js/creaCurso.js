@@ -30,7 +30,39 @@ $(function()
         calendar.render();
     
         // los trozos de calendario no se pondrán en gris, serán eventos propios "ajenos" para que funcione selectOverlap
-    
+
+    // Controles de agrupación
+    $("#add_group").on("click",function()
+    {
+        var nuevoGrupo = $("<li><input type='text' /></li>")
+            .on("keypress", input_to_text);
+
+        $(nuevoGrupo).insertBefore(this);
+
+        function input_to_text(event)
+        {
+            if(event.key == "Enter")
+            {
+                // Lo convertimos en texto plano.
+                if($(this).children().val() != "")
+                {
+                    var valor = $(this).children().val();
+
+                    $(this).html(valor);
+                    // Habría que añadirle un color picker pero eso para luego.
+
+                    $(this).on("dblclick",text_to_input);
+                }
+            }
+        }
+
+        function text_to_input(event)
+        {
+            var valor = $(this).text();
+            $(this).html("<input type='text' value='"+valor+"' />")
+            $(this).on("keypress",input_to_text);
+        }
+    })
 
     // Controles de paginación
 
