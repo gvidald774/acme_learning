@@ -15,9 +15,16 @@ $(function()
             selectMirror: true,
             unselectAuto: false,
             selectOverlap: false,
+            timeFormat: 'H(:mm)',
             select: function(info)
             {
                 alert("Se ha seleccionado "+info.startStr + ' a ' + info.endStr);
+                var eventoide = new Object();
+                eventoide.start = info.startStr;
+                eventoide.end = info.endStr;
+                eventoide.allDay = false;
+                eventoide.title = "Reserva 1";
+                calendar.addEvent(eventoide);
             }
         });
         calendar.render();
