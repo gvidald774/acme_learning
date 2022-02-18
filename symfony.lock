@@ -417,9 +417,6 @@
     "symfony/serializer": {
         "version": "v6.0.3"
     },
-    "symfony/serializer-pack": {
-        "version": "v1.1.0"
-    },
     "symfony/service-contracts": {
         "version": "v3.0.0"
     },

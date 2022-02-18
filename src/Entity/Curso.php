@@ -13,64 +13,84 @@ class Curso
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['curso'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['curso'])]
     private $titulo;
 
     #[ORM\Column(type: 'datetime')]
+    #[Groups(['curso'])]
     private $f_ini_inscripcion;
 
     #[ORM\Column(type: 'datetime')]
+    #[Groups(['curso'])]
     private $f_fin_inscripcion;
 
     #[ORM\Column(type: 'datetime')]
+    #[Groups(['curso'])]
     private $f_ini_reclamacion;
 
     #[ORM\Column(type: 'datetime')]
+    #[Groups(['curso'])]
     private $f_fin_reclamacion;
 
     #[ORM\Column(type: 'datetime')]
+    #[Groups(['curso'])]
     private $f_ini_baja;
 
     #[ORM\Column(type: 'datetime')]
+    #[Groups(['curso'])]
     private $f_fin_baja;
 
     #[ORM\Column(type: 'datetime')]
+    #[Groups(['curso'])]
     private $f_ini_curso;
 
     #[ORM\Column(type: 'datetime')]
+    #[Groups(['curso'])]
     private $f_fin_curso;
 
     #[ORM\Column(type: 'text')]
+    #[Groups(['curso'])]
     private $contenido;
 
     #[ORM\Column(type: 'text')]
+    #[Groups(['curso'])]
     private $objetivos;
 
     #[ORM\Column(type: 'text')]
+    #[Groups(['curso'])]
     private $requisitos;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['curso'])]
     private $categoria;
 
     #[ORM\Column(type: 'float')]
+    #[Groups(['curso'])]
     private $precio;
 
     #[ORM\Column(type: 'integer')]
+    #[Groups(['curso'])]
     private $horas;
 
     #[ORM\Column(type: 'boolean')]
+    #[Groups(['curso'])]
     private $documentos;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'cursos')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['curso_profesor'])]
     private $profesor;
 
     #[ORM\OneToMany(mappedBy: 'curso', targetEntity: Grupo::class, orphanRemoval: true)]
+    #[Groups(['curso_grupos'])]
     private $grupos;
 
     #[ORM\Column(type: 'text')]
+    #[Groups(['curso'])]
     private $descripcion;
 
     public function __construct()
