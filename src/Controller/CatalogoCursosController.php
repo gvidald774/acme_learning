@@ -25,6 +25,6 @@ class CatalogoCursosController extends AbstractController
     public function traeteCursos(CursoRepository $cursos_repo): Response
     {
         $cursos = $cursos_repo->findAll();
-        return new Response($cursos);
+        return new Response(json_encode($cursos));
     }
 }

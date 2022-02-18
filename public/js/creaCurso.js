@@ -34,8 +34,8 @@ $(function()
     // Controles de agrupación
     $("#add_group").on("click",function()
     {
-        // Cambiar por estructura como tal, esto es basura.
-        var nuevoGrupo = $("<li><input type='color' /><input type='text' /></li>").children(1).on("keypress",input_to_text);
+        var nuevoGrupo = $("<li></li>").append("<input type='color'>").append("<input type='text'>").append("<input type='radio' name='grupos'>");
+        $(nuevoGrupo).children(1).on("keypress",input_to_text);
 
         $(nuevoGrupo).insertBefore(this);
 
@@ -44,15 +44,18 @@ $(function()
             if(event.key == "Enter")
             {
                 // Lo convertimos en texto plano.
-                console.log("Qué "+$(this).children(1).val());
-                if($(this).children(1).val() != "")
+                console.log("Qué "+$(this).val());
+                if($(this).val() != "")
                 {
-                    var valor = $(this).children(1).val();
-
-                    $(this).html(valor);
-                    // Habría que añadirle un color picker pero eso para luego.
-
+                    console.log("Bueno pues vamos a cambiarlo");
+                    var valor = $(this).val();
+                    $(this).replaceWith(valor);
+                    
+                    var timeout;
+                    
                     $(this).on("dblclick",text_to_input);
+
+                    // Sería más sencillo añadir un botoncico que me lo active...
                 }
             }
         }
@@ -60,7 +63,7 @@ $(function()
         function text_to_input(event)
         {
             var valor = $(this).text();
-            $(this).html("<input type='text' value='"+valor+"' />")
+            $(this).replaceWith("<input type='text' value='"+valor+"' />")
             $(this).on("keypress",input_to_text);
         }
     })
