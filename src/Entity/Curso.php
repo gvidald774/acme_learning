@@ -83,10 +83,12 @@ class Curso
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'cursos')]
     #[ORM\JoinColumn(nullable: false)]
     #[Groups(['curso_profesor'])]
+    #[MaxDepth(2)]
     private $profesor;
 
     #[ORM\OneToMany(mappedBy: 'curso', targetEntity: Grupo::class, orphanRemoval: true)]
     #[Groups(['curso_grupos'])]
+    #[MaxDepth(2)]
     private $grupos;
 
     #[ORM\Column(type: 'text')]

@@ -1,0 +1,87 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Detalles del curso blablabla{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/custom-frontpage.css') }}" />
+{% endblock %}
+
+{% block content %}
+<h1 class="mx-5 p-5">{{ curso.titulo }}</h1>
+<div class="row">
+    <div class="col-7 border mx-5 p-2">
+        <div class="row">
+            <img src="{{ asset('images/meeting-01.jpg') }}"> {# La imagen del curso #}
+        </div>
+        <div class="row">
+            <p>{{ curso.descripcion|raw }}</p>
+        </div>
+        <div class="row">
+            <div class="accordion open" id="acordeon-detalles-curso">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="objetivos-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#objetivos" aria-expanded="true" aria-controls="objetivos">
+                            Objetivos
+                        </button>
+                    </h2>
+                    <div id="objetivos" class="accordion-collapse collapse show" aria-labelledby="objetivos-header" data-bs-parent="#acordeon-detalles-curso">
+                        <div class="accordion-body overflow">
+                            {{ curso.objetivos|raw }}
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="contenidos-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contenidos" aria-expanded="true" aria-controls="contenidos">
+                            Contenidos
+                        </button>
+                    </h2>
+                    <div id="contenidos" class="accordion-collapse collapse" aria-labelledby="objetivos-header" data-bs-parent="#acordeon-detalles-curso">
+                        <div class="accordion-body overflow-visible">
+                            {{ curso.contenido|raw }}
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="requisitos-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#requisitos" aria-expanded="true" aria-controls="requisitos">
+                            Requisitos
+                        </button>
+                    </h2>
+                    <div id="requisitos" class="accordion-collapse collapse" aria-labelledby="objetivos-header" data-bs-parent="#acordeon-detalles-curso">
+                        <div class="accordion-body overflow-visible">
+                            {{ curso.requisitos|raw }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2 px-3">
+            <div class="d-inline-flex flex-row-reverse"><a class="btn btn-light" href="{{ path('home2') }}">Unirse</a></div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="row border">
+            <ul>
+                <li><strong>Impartido por: </strong>{{ curso.profesor.nombre }} {{ curso.profesor.apellido1 }} {{ curso.profesor.apellido2 }}</li>
+                <li><strong>Categoría: </strong>{{ curso.categoria }}{# Añadir un switch o algo #}</li>
+                <li><strong>Inscripción: </strong>{{ curso.FIniInscripcion|date('Y-m-d') }} - {{ curso.FFinInscripcion|date('Y-m-d') }}</li>
+                <li><strong>Reclamación: </strong>{{ curso.FIniReclamacion|date('Y-m-d') }} - {{ curso.FFinReclamacion|date('Y-m-d') }}</li>
+                <li><strong>Baja: </strong>{{ curso.FIniBaja|date('Y-m-d') }} - {{ curso.FFinBaja|date('Y-m-d') }}</li>
+                <li><strong>Curso: </strong>{{ curso.FIniCurso|date('Y-m-d') }} - {{ curso.FFinCurso|date('Y-m-d') }}</li>
+                {# Este último más grande #}
+                <li><strong>{{ curso.horas }} horas - {{ curso.precio }}{#Dividir entre cien#} €</strong></li>
+            </ul>
+        </div>
+        <div class="row">
+            {# Aquí iría el calendario si lo hubiere #}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/carga_cursos.js') }}"></script>
+{% endblock %}
