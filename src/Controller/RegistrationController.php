@@ -12,6 +12,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Address;
+use Symfony\Component\Mime\Email;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
@@ -23,6 +25,26 @@ class RegistrationController extends AbstractController
     public function __construct(EmailVerifier $emailVerifier)
     {
         $this->emailVerifier = $emailVerifier;
+    }
+
+    #[Route('/emilio', name: 'manda_emilio')]
+    public function sendEmail(MailerInterface $mailer): Response
+    {
+        $email = (new Email())
+            ->from('schobzax@gmail.com')
+            ->to('blogete0@gmail.com')
+            ->subject('Prueba de enviar correo')
+            ->text('Ey a ver si funcionara o funcionase esta mierda')
+            ->html('<h1>bottom text</h1>');
+
+        try {
+            $mensajito = $mailer->send($email);
+        }
+        catch (TransportExceptionInterface $e) {
+            return new Response($e->getMessage());
+        }
+
+        return new Response(var_dump($email));
     }
 
     #[Route('/register', name: 'app_register')]
@@ -45,6 +67,7 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             // generate a signed url and email it to the user
+            echo("VAMOS A MANDAR EL CORREO");
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('registration@acmelearning.com', 'Acme Learning Registration Utility'))
@@ -54,7 +77,7 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('home2');
         }
 
         return $this->render('registration/register.html.twig', [

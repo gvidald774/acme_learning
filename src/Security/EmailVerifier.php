@@ -47,6 +47,7 @@ class EmailVerifier
      */
     public function handleEmailConfirmation(Request $request, UserInterface $user): void
     {
+        echo("VAMOS A VER SI ENVIÁSEMOS EL CORREO ESTE COÑO");
         $this->verifyEmailHelper->validateEmailConfirmation($request->getUri(), $user->getId(), $user->getEmail());
 
         $user->setIsVerified(true);
