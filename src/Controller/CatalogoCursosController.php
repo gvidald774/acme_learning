@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\CursoRepository;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class CatalogoCursosController extends AbstractController
 {
@@ -21,10 +22,11 @@ class CatalogoCursosController extends AbstractController
         // Id curso y sacar el curso a partir de ahí... sí.
     }
 
-    #[Route(name: 'trae_cursos')]
-    public function traeteCursos(CursoRepository $cursos_repo): Response
+    #[Route('/cursos/todos/todos', name: 'trae_cursos')]
+    public function traeteCursos(CursoRepository $cursos_repo, SerializerInterface $serializer): Response
     {
         $cursos = $cursos_repo->findAll();
-        return new Response($cursos);
+        $cursos_serializados = $serializer->serialize($cursos, 'json', ['groups' => 'curso']);
+        return new Response($cursos_serializados);
     }
 }
