@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 
 class CreaCursoController extends AbstractController
@@ -99,6 +100,7 @@ class CreaCursoController extends AbstractController
             ->add('contenido', CKEditorType::class)
             ->add('objetivos', CKEditorType::class)
             ->add('requisitos', CKEditorType::class)
+            ->add('imagen', FileType::class)
             ->getForm();
 
         return $this->renderForm('crea_curso/index.html.twig', [
