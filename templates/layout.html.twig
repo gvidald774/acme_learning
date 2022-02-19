@@ -61,6 +61,16 @@
         $(window).scroll(function () {
           checkSection();
         });
+
+        $(".nav li a").on('click', function(event) {
+            let requestedHref = event.currentTarget.getAttribute('href').split('#')[0]
+            let baseHref = window.location.href.split('#')[0]
+            if ((requestedHref.length === 0 || baseHref === requestedHref) && this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                ...
+            }
+
     </script>
 {% endblock %}
 
@@ -76,34 +86,13 @@
                         </a>
                     {% block menu %}
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="#top" class="active">Inicio</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('home2') }}#top" class="active">Inicio</a></li>
                         <li><a href="{{ path('catalogo_cursos') }}">Cursos</a></li>
-                        <li class="scroll-to-section"><a href="#info-title">Información</a></li>
-                        <li class="scroll-to-section"><a href="#">Algo más</a></li>
-                        <li class="scroll-to-section"><a href="#contacto">Contacto</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('home2') }}#info-title">Información</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('home2') }}#">Algo más</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('home2') }}#contacto">Contacto</a></li>
                         {% block user %}
-                        <li>
-                            <a href="{{ path('login') }}" id="botonUsuario" data-bs-toggle="popover" data-bs-placement="bottom"
-                            data-bs-content="
-                            <form>
-                                Hola qué tal
-                                <label>Label</label>
-                                <input type='text' />
-                            </form>
-                            ">Log in</a>
-                            
-                        </li>
-                        <!--<li>
-                            <a href="#" id="popover">Log in</a>
-                            <div id="popover-head" class="hide">
-                                Oi vey!
-                            </div>
-                            <div id="popover-content" class="hide">
-                                <form>
-                                    <input type="text">
-                                </form>
-                            </div>
-                        </li>-->
+                        <li><a href="{{ path('login') }}">Acceder</a></li>
                         {% endblock %}
                     </ul>
                     <a class="menu-trigger">
