@@ -93,6 +93,9 @@ class Curso
     #[Groups(['curso'])]
     private $descripcion;
 
+    #[ORM\Column(type: 'blob')]
+    private $imagen;
+
     public function __construct()
     {
         $this->grupos = new ArrayCollection();
@@ -345,6 +348,18 @@ class Curso
     public function setDescripcion(string $descripcion): self
     {
         $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen($imagen): self
+    {
+        $this->imagen = $imagen;
 
         return $this;
     }
