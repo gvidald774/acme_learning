@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/custom-frontpage.css') }}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="d-flex flex-row-reverse align-items-center">
+        <div class="image w-25 m-3 p-3">
+            <img src="{{ asset('images/meeting-01.jpg') }}" class="image-fluid"> {# La imagen del usuario #}
+        </div>
+        <div class="name align-items-center"> 
+            <h1>Mi perfil</h1> {# Esta parte se cambia si es perfil ajeno #}
+        </div>
+    </div>
+    <div class="row">
+        <div class="inside-navigation d-flex align-items-start">
+            <div class="nav flex-column nav-tab me-3" id="navi-perfil">
+                <button class="btn btn-light nav-link" id="navi-tab-perfil-planner" data-bs-toggle="tab" data-bs-target="#navi-planner" type="button">Planner</button>
+                <button class="btn btn-light nav-link" id="navi-tab-perfil-datos" data-bs-toggle="tab" data-bs-target="#navi-datos" type="button">Datos</button>
+                <a class="btn btn-light nav-link" id="navi-tab-perfil-cursos" href="{{ path('catalogo_cursos') }}">Mis cursos</a> {# When the impostor link disguised as button is sus #}
+            </div>
+            <div class="tab-content" id="v-tabs-tabContent">
+                <div class="tab-pane fade show active" id="navi-planner" role="tabpanel">
+                    <p>Pues mira, si no fuese yo un cabezahueca, aquí iría un calendario que haría las veces de planner, donde el usuario consulta pues las clases que tiene pronto y tal. Estaría bien. Pero como soy un vago pues no está. Llamémoslo placeholder.</p>
+                </div>
+                <div class="tab-pane fade" id="navi-datos" role="tabpanel">
+                    <div class="formulario">
+                        <div class="row">
+                            <p>Pues mira, aquí iría un "formulario" con los datos de que disponemos del usuario.</p>
+                            <p>Básicamente aquí se haría la estructura del formulario para que el usuario pues los vea y si es el usuario del perfil pues los pueda modificar con un botón que hay allí abajo del todo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
