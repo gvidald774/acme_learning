@@ -1,11 +1,34 @@
 $(function()
 {
+
+    var titulo;
+    var descripcion;
+    var f_ini_inscripcion;
+    var f_ini_reclamacion;
+    var f_ini_baja;
+    var f_ini_curso;
+    var f_fin_inscripcion;
+    var f_fin_reclamacion;
+    var f_fin_baja;
+    var f_fin_curso;
+    var categoria;
+    var precio;
+    var horas;
+    var documentacion;
+    var aula;
+    var horario; // yo qué se
+    var contenido;
+    var objetivos;
+    var requisitos;
+    var imagen;
+
     $("input[id^=form_f]").val('');
 
         // CALENDARIO
         var divCalendario = document.getElementById("calendario1");
         var calendar = new FullCalendar.Calendar(divCalendario, {
             initialView: 'timeGridWeek',
+            firstDay: 1,
             eventMinHeight: 30,
             allDaySlot: false,
             slotDuration: '00:30:00',
@@ -13,26 +36,30 @@ $(function()
             slotMaxTime: "22:00:00",
             selectable: true,
             selectMirror: true,
-            unselectAuto: false,
+            unselectAuto: true,
             selectOverlap: false,
             timeFormat: 'H(:mm)',
             select: function(info)
             {
-                alert("Se ha seleccionado "+info.startStr + ' a ' + info.endStr);
                 var eventoide = new Object();
                 eventoide.start = info.startStr;
                 eventoide.end = info.endStr;
                 eventoide.allDay = false;
-                eventoide.title = "Reserva 1";
+                eventoide.title = "Reserva";
                 calendar.addEvent(eventoide);
-            }
+            },
+            eventClick: function(info)
+            {
+                info.event.remove();
+            },
+            editable:true
         });
         calendar.render();
     
         // los trozos de calendario no se pondrán en gris, serán eventos propios "ajenos" para que funcione selectOverlap
 
     // Controles de agrupación
-    $("#add_group").on("click",function()
+    /*$("#add_group").on("click",function()
     {
         var nuevoGrupo = $("<li></li>").append("<input type='color'>").append("<input type='text'>").append("<input type='radio' name='grupos'>");
         $(nuevoGrupo).children(1).on("keypress",input_to_text);
@@ -43,15 +70,10 @@ $(function()
         {
             if(event.key == "Enter")
             {
-                // Lo convertimos en texto plano.
-                console.log("Qué "+$(this).val());
                 if($(this).val() != "")
                 {
-                    console.log("Bueno pues vamos a cambiarlo");
                     var valor = $(this).val();
                     $(this).replaceWith(valor);
-                    
-                    var timeout;
                     
                     $(this).on("dblclick",text_to_input);
 
@@ -66,7 +88,7 @@ $(function()
             $(this).replaceWith("<input type='text' value='"+valor+"' />")
             $(this).on("keypress",input_to_text);
         }
-    })
+    })*/
 
     // Controles de paginación
 
@@ -88,9 +110,16 @@ $(function()
     })
     $("#pagination2").on("click", function(ev)
     {
-        ev.preventDefault();
-        muestraPagina(2);
-        calendar.render();
+        if(validaPaginaUno())
+        {
+            ev.preventDefault();
+            muestraPagina(2);
+            calendar.render();
+        }
+        else
+        {
+            ev.preventDefault();
+        }
     })
     $("#pagination3").on("click", function(ev)
     {
@@ -105,10 +134,17 @@ $(function()
 
     
     $("button#a_pag2").on("click",function(ev) {
-        ev.preventDefault();
-        muestraPagina(2);
-        $("#pagination2").activar();
-        calendar.render();
+        if(validaPaginaUno())
+        {
+            ev.preventDefault();
+            muestraPagina(2);
+            $("#pagination2").activar();
+            calendar.render();
+        }
+        else
+        {
+            ev.preventDefault();
+        }
     })
 
     $("button#a_pag3").on("click",function(ev) {
@@ -116,6 +152,164 @@ $(function()
         muestraPagina(3);
         $("#pagination3").activar();
     })
+
+    function validaPaginaUno()
+    {
+        var errores = 0;
+        if (!$("#form_titulo").val())
+        {
+            console.log("No hay título");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            titulo = $("#form_titulo").val();
+            console.log("Título: "+titulo);
+        }
+
+        if (!$("#form_f_ini_inscripcion").val())
+        {
+            console.log("No hay f_ini_inscripcion");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            f_ini_inscripcion = $("#form_f_ini_inscripcion").val();
+            console.log("F_ini_inscripcion: "+f_ini_inscripcion);
+        }
+
+        if (!$("#form_f_fin_inscripcion").val())
+        {
+            console.log("No hay f_fin_inscripcion");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            f_fin_inscripcion = $("#form_f_fin_inscripcion").val();
+            console.log("F_fin_inscripcion: "+f_fin_inscripcion);
+        }
+
+        if (!$("#form_f_ini_reclamacion").val())
+        {
+            console.log("No hay f_ini_reclamacion");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            f_ini_reclamacion = $("#form_f_ini_reclamacion").val();
+            console.log("F_ini_reclamacion: "+f_ini_reclamacion);
+        }
+
+        if (!$("#form_f_fin_reclamacion").val())
+        {
+            console.log("No hay f_fin_reclamacion");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            f_fin_reclamacion = $("#form_f_fin_reclamacion").val();
+            console.log("F_fin_reclamacion: "+f_fin_reclamacion);
+        }
+
+        if (!$("#form_f_ini_baja").val())
+        {
+            console.log("No hay f_ini_baja");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            f_ini_baja = $("#form_f_ini_baja").val();
+            console.log("F_ini_baja: "+f_ini_baja);
+        }
+
+        if (!$("#form_f_fin_baja").val())
+        {
+            console.log("No hay f_fin_baja");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            f_fin_baja = $("#form_f_fin_baja").val();
+            console.log("F_fin_baja: "+f_fin_baja);
+        }
+
+        if (!$("#form_f_ini_curso").val())
+        {
+            console.log("No hay f_ini_curso");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            f_ini_curso = $("#form_f_ini_curso").val();
+            console.log("F_ini_curso: "+f_ini_curso);
+        }
+
+        if (!$("#form_f_fin_curso").val())
+        {
+            console.log("No hay f_fin_curso");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            f_fin_curso = $("#form_f_fin_curso").val();
+            console.log("F_fin_curso: "+f_fin_curso);
+        }
+
+        if (!$("#form_categoria").val())
+        {
+            console.log("No hay categoría");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            categoria = $("#form_categoria").val();
+            console.log("Categoria: "+categoria);
+        }
+
+        if (!$("#form_precio").val())
+        {
+            console.log("No hay precio");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            precio = $("#form_precio").val();
+            console.log("Precio: "+precio);
+        }
+
+        if (!$("#form_horas").val())
+        {
+            console.log("No hay horas");
+            errores++;
+            console.log("Errores: "+errores);
+        }
+        else
+        {
+            horas = $("#form_horas").val();
+            console.log("Horas: "+horas);
+        }
+
+        if(errores>0)
+        {
+            alert("Faltan datos");
+            return false;
+        }
+        else{
+            documentos = $("#form_documentos").val();
+            return true;
+        }
+    }
 
     function muestraPagina(id)
     {
@@ -130,7 +324,6 @@ $(function()
                 paginaDosMostradaPorPrimeraVez = true;
             }
         }
-        validaFechas();
     }
 
     // Ah y que no te deje pasar la página hasta que los valores estén correctos
@@ -376,13 +569,11 @@ $(function()
         }
     });
 
+    // Controles de generar reserva
 
-    function validaFechas()
+    $(".add-reserva").on("click",function()
     {
-        var todoCorrecto = true;
-        console.log($("#form_f_ini_inscripcion").datetimepicker('getValue'));
-
-        return todoCorrecto;
-    }
+        $("<p>Normalmente aquí aparecería una segunda reserva, pero debido a la falta de tiempo no será posible. Sí he averiguado que se haría con clone(), pero las implicaciones en el backend y en el acceso a la base de datos son tan gargantuescas que no he visto la posibilidad de implementarlas a tiempo.</p>").appendTo("#pagina2");
+    });
 
 })

@@ -163,12 +163,12 @@
                     </div>
                     {# Aquí va el calendario ese con el plugin2 #}
                     <div class="calendar row">
-                        <div id="calendario1" class="col-9"></div>
-                        <div class="col-3 mt-5">
+                        <div id="calendario1" class="col-12"></div>
+                        <!--<div class="col-3 mt-5">
                             <ul>
                                 <li id="add_group"><button type="button">Añadir grupo...</button></li>
                             </ul>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="add-reserva display-6 d-flex justify-content-center mt-5">+ Añadir reserva...</div>
                 </div>
@@ -180,7 +180,7 @@
                 {{ form_row(form.objetivos) }}
                 {{ form_row(form.requisitos) }}
                 {{ form_row(form.imagen) }}
-                <p>Quizá estaría bien meter una cuarta página de confirmación de todos los datos.</p>
+                <button type="submit" class="btn btn-primary" id="boton_final">Crear curso</button>
             </div>
         {{ form_end(form) }}
     </div>
@@ -188,6 +188,7 @@
 
 {% block javascripts %}
 {{ parent() }}
+<script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('datetimepicker/build/jquery.datetimepicker.full.min.js') }}"></script>
 <script src="{{ asset('mapper/mapper.js') }}"></script>
 <script src="{{ asset('calendar/lib/main.min.js') }}"></script>
