@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="{{ asset('css/custom-frontpage.css') }}" />
 {% endblock %}
 
+{% if curso.categoria == 0 %}
+    {% set categoria = '000 - Ciencias de la Computación, Información y Obras Generales' %}
+{% elseif curso.categoria == 1 %}
+    {% set categoria = '100 - Filosofía y Psicología' %}
+{% elseif curso.categoria == 2 %}
+    {% set categoria = '200 - Religión, Teología' %}
+{% elseif curso.categoria == 3 %}
+    {% set categoria = '300 - Ciencias Sociales' %}
+{% elseif curso.categoria == 4 %}
+    {% set categoria = '400 - Lenguas' %}
+{% elseif curso.categoria == 5 %}
+    {% set categoria = '500 - Ciencias Básicas' %}
+{% elseif curso.categoria == 6 %}
+    {% set categoria = '600 - Tecnología y Ciencias Aplicadas' %}
+{% elseif curso.categoria == 7 %}
+    {% set categoria = '700 - Artes y Recreación' %}
+{% elseif curso.categoria == 8 %}
+    {% set categoria = '800 - Literatura' %}
+{% elseif curso.categoria == 9 %}
+    {% set categoria = '900 - Historia y Geografía' %}
+{% else %}
+    {% set categoria = 'Desconocida' %}
+{% endif %}
+
 {% block content %}
 <h1 class="mx-5 p-5">{{ curso.titulo }}</h1>
 <div class="row">
@@ -65,13 +89,13 @@
         <div class="row border">
             <ul>
                 <li><strong>Impartido por: </strong>{{ curso.profesor.nombre }} {{ curso.profesor.apellido1 }} {{ curso.profesor.apellido2 }}</li>
-                <li><strong>Categoría: </strong>{{ curso.categoria }}{# Añadir un switch o algo #}</li>
+                <li><strong>Categoría: </strong>{{ categoria }}</li>
                 <li><strong>Inscripción: </strong>{{ curso.FIniInscripcion|date('Y-m-d') }} - {{ curso.FFinInscripcion|date('Y-m-d') }}</li>
                 <li><strong>Reclamación: </strong>{{ curso.FIniReclamacion|date('Y-m-d') }} - {{ curso.FFinReclamacion|date('Y-m-d') }}</li>
                 <li><strong>Baja: </strong>{{ curso.FIniBaja|date('Y-m-d') }} - {{ curso.FFinBaja|date('Y-m-d') }}</li>
                 <li><strong>Curso: </strong>{{ curso.FIniCurso|date('Y-m-d') }} - {{ curso.FFinCurso|date('Y-m-d') }}</li>
                 {# Este último más grande #}
-                <li><strong>{{ curso.horas }} horas - {{ curso.precio }}{#Dividir entre cien#} €</strong></li>
+                <li><strong>{{ curso.horas }} horas - {{ curso.precio/100 }} €</strong></li>
             </ul>
         </div>
         <div class="row">
