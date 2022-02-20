@@ -95,7 +95,7 @@ class Curso
     #[Groups(['curso'])]
     private $descripcion;
 
-    #[ORM\Column(type: 'blob')]
+    #[ORM\Column(type: 'string')]
     private $imagen;
 
     public function __construct()

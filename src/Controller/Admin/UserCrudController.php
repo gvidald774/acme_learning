@@ -42,7 +42,9 @@ class UserCrudController extends AbstractCrudController
             // apellido2
             TextField::new('apellido2'),
             // foto
-            ImageField::new('foto')->setUploadDir('assets\images'),
+            ImageField::new('foto')
+                ->setUploadDir('assets\images')
+                ->setBasePath('assets\images'),
             // AÑADIR PAÍS (?)
             // localidad
             TextField::new('localidad'),

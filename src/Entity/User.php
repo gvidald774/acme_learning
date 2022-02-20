@@ -47,7 +47,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $apellido2;
 
-    #[ORM\Column(type: 'blob', nullable: true)] // Change to route
+    #[ORM\Column(type: 'string', nullable: true)] // Change to route
     private $foto;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]

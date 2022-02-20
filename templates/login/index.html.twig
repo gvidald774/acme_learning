@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Hello LoginController!{% endblock %}
+{% block title %}Acceso!{% endblock %}
 
 {% block content %}
 
@@ -8,16 +8,31 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-<form action="{{ path('login') }}" method="post">
-    <label for="username">Email:</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+<div class="h-100 p-5" style="background-color: maroon">
+    <h1 class="text-white">Acceso</h1>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="_password"/>
+    <div class="col-8 my-5 p-5 mx-auto bg-light">
+        <form action="{{ path('login') }}" method="post">
+            <div class="row mb-5">
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+            </div>
+            <div class="row mb-5">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="_password"/>
+            </div>
+            {# Simpático login, ¿a dónde irá? #}
 
-    {# Simpático login, ¿a dónde irá? #}
-
-    <button type="submit">Entrar</button>
-</form>
-
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="row">
+            <div class="col-6">
+                <a href="{{ path('app_register') }}">Registrarse</a>
+            </div>
+            <div class="col-6">
+                <a href="{{ path('app_forgot_password_request') }}">¿Problemas para acceder?</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
