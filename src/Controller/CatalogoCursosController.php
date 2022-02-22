@@ -14,9 +14,11 @@ use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 class CatalogoCursosController extends AbstractController
 {
     #[Route('/cursos', name: 'catalogo_cursos')]
-    public function index(): Response
+    public function index(CursoRepository $cursos_repo): Response
     {
-        return $this->render('catalogo_cursos/index.html.twig');
+        $cursos = $cursos_repo->findAll();
+        return $this->render('catalogo_cursos/index.html.twig',
+                             ['cursos' => $cursos]);
     }
 
     #[Route('/cursos/{id}', name: 'detalles_curso')]

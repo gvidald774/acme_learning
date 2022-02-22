@@ -17,7 +17,20 @@
     <div class="col-1"></div>
     <section id="cursos" class="col-8 border border-dark p-5">
         {# Y aquí irían los cursos, que quizá lo suyo es pillarlos por AJAX. #}
-        <p>Hola soy un curso</p>
+        <div class="d-flex justify-content-evenly">
+            {% for curso in cursos %}
+            <div class="w-25 h-25 curso m-5 p-5 bg-ruby overflow-hidden"><a href="/cursos/{{ curso.id }}">
+                <img src="">
+                <h5>{{ curso.titulo }}</h5>
+                <p>{{ curso.descripcion|raw }}</p> {# Recortar si se pudiera #}
+                {% set plazas = 0 %}
+                {% for grupo in curso.grupos %}
+                {% set plazas = plazas+grupo.plazas %}
+                {% endfor %}
+                <div><strong>{{ curso.precio/100 }} € - {{ plazas }} plazas</strong></div>
+            </a></div>
+            {% endfor %}
+        </div>
     </section>
 </div>
 
