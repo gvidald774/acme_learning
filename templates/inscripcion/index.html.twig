@@ -4,7 +4,21 @@
 
 {% block content %}
 
-<h1>Inscripción</h1>
-<p>{{ curso.titulo }}</p>
+<div id="contenedor row mx-5 px-5">
+    <h1>Confirmar inscripción</h1>
+    <div id="formularino_inscripcion" class="container col-12 border border-dark">
+        {# Formularino #}
+        <div class="row">
+            <div class="titulo"><h3>{{ curso.titulo }}</h3></div>
+        </div>
+        <div class="row">Requisitos:
+            <div class="requisitos mx-5 border border-dark col-11">{{ curso.requisitos|raw}}</div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            {{ form(form) }}
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
