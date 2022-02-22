@@ -76,6 +76,10 @@ class Curso
     #[Groups(['curso'])]
     private $horas;
 
+    #[ORM\Column(type: 'integer')]
+    #[Groups(['curso'])]
+    private $plazas;
+
     #[ORM\Column(type: 'boolean')]
     #[Groups(['curso'])]
     private $documentos;
@@ -85,11 +89,6 @@ class Curso
     #[Groups(['curso_profesor'])]
     #[MaxDepth(2)]
     private $profesor;
-
-    #[ORM\OneToMany(mappedBy: 'curso', targetEntity: Grupo::class, orphanRemoval: true)]
-    #[Groups(['curso_grupos'])]
-    #[MaxDepth(2)]
-    private $grupos;
 
     #[ORM\Column(type: 'text')]
     #[Groups(['curso'])]

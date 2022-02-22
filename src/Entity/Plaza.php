@@ -19,9 +19,9 @@ class Plaza
     #[ORM\JoinColumn(nullable: false)]
     private $id_alumno;
 
-    #[ORM\ManyToOne(targetEntity: Grupo::class, inversedBy: 'array_plazas')]
+    #[ORM\ManyToOne(targetEntity: Curso::class, inversedBy: 'plazas_array')]
     #[ORM\JoinColumn(nullable: false)]
-    private $id_grupo;
+    private $id_curso;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $puesto;

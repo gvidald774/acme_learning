@@ -16,11 +16,7 @@ class Reserva
     #[ORM\ManyToOne(targetEntity: Aula::class)]
     #[ORM\JoinColumn(nullable: false)]
     private $id_aula;
-
-    #[ORM\ManyToOne(targetEntity: Grupo::class, inversedBy: 'reservas')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $id_grupo;
-
+    
     #[ORM\ManyToOne(targetEntity: Tramo::class, inversedBy: 'reservas')]
     #[ORM\JoinColumn(nullable: true)]
     private $id_tramo;
