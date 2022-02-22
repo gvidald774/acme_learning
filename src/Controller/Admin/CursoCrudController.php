@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 
 class CursoCrudController extends AbstractCrudController
 {
@@ -72,7 +73,12 @@ class CursoCrudController extends AbstractCrudController
             // documentos
             BooleanField::new('documentos'),
             // profesor
-            AssociationField::new('profesor')
+            AssociationField::new('profesor'),
+            // imagen
+            ImageField::new('imagen')
+                ->setUploadDir('assets\images')
+                ->setBasePath('assets\images'),
+
         ];
     }
     

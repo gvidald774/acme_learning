@@ -287,6 +287,18 @@ class Curso
         return $this;
     }
 
+    public function getPlazas(): ?int
+    {
+        return $this->plazas;
+    }
+
+    public function setPlazas(int $plazas): self
+    {
+        $this->plazas = $plazas;
+
+        return $this;
+    }
+
     public function getDocumentos(): ?bool
     {
         return $this->documentos;
