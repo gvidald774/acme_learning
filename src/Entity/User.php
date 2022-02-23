@@ -50,6 +50,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', nullable: true)] // Change to route
     private $foto;
 
+    #[Vich\UploadableField(mapping: 'imagen_perfil', fileNameProperty: 'foto')]
+    private $imageFile = null;
+
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $telefono;
 
@@ -312,6 +315,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->genero = $genero;
 
         return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
     }
 
     public function __toString(): string

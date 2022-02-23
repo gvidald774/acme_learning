@@ -6,8 +6,11 @@ use App\Repository\CursoRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: CursoRepository::class)]
+#[Vich\Uploadable]
 class Curso
 {
     #[ORM\Id]
@@ -96,6 +99,9 @@ class Curso
 
     #[ORM\Column(type: 'string')]
     private $imagen;
+
+    #[Vich\UploadableField(mapping: 'imagen_curso', fileNameProperty: 'imagen')]
+    private $imageFile = null;
 
     public function __construct()
     {
@@ -375,6 +381,19 @@ class Curso
         $this->imagen = $imagen;
 
         return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
     }
 
     public function __toString(): string

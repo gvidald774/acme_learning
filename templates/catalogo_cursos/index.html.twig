@@ -22,7 +22,7 @@
                 {% for curso in cursos %}
                 <div class="col-6">
                     <a href="/cursos/d/{{ curso.id }}"><div class="curso p-5 bg-ruby overflow-hidden">
-                    <img src="/images/cursos/{{ curso.imagen }}" class="img-responsive" style="height:100px;">
+                    <img src="{{ vich_uploader_asset(curso, 'imagen') }}" class="img-responsive" style="height:100px;">
                     <h5>{{ curso.titulo }}</h5>
                     {% if curso.descripcion|length > 50 %}
                         {% set texto = curso.descripcion|slice(0, 50) ~ '...</div>' %}
