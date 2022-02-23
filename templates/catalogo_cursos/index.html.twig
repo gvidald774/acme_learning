@@ -22,9 +22,14 @@
                 {% for curso in cursos %}
                 <div class="col-6">
                     <a href="/cursos/{{ curso.id }}"><div class="curso p-5 bg-ruby overflow-hidden">
-                    <img src="{{ curso.imagen }}">
+                    <img src="/images/cursos/{{ curso.imagen }}" class="img-responsive" style="height:100px;">
                     <h5>{{ curso.titulo }}</h5>
-                    <p>{{ curso.descripcion|raw }}</p> {# Recortar si se pudiera #}
+                    {% if curso.descripcion|length > 50 %}
+                        {% set texto = curso.descripcion|slice(0, 50) ~ '...</div>' %}
+                        {% else %}
+                        {% set texto = curso.descripcion %}
+                    {% endif %}
+                    <p class="overflow-hidden">{{ texto|raw }}</p> {# Recortar si se pudiera #}
                     <div><strong>{{ curso.precio/100 }} € - {{ curso.plazas }} plazas</strong></div>
                 </div></a>
                 </div>

@@ -75,7 +75,7 @@
 {% endblock %}
 
 {% block body %}
-    {% block header %} {# Meter un condicional que comprueba si estás logueado #}
+    {% block header %}
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
@@ -85,19 +85,29 @@
                             ACME Learning
                         </a>
                     {% block menu %}
+                    {% if app.user == null %}
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{ path('home2') }}#top" class="active">Inicio</a></li>
                         <li><a href="{{ path('catalogo_cursos') }}">Cursos</a></li>
                         <li class="scroll-to-section"><a href="{{ path('home2') }}#info-title">Información</a></li>
-                        <li class="scroll-to-section"><a href="{{ path('home2') }}#">Algo más</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('home2') }}#galeria">Imágenes</a></li>
                         <li class="scroll-to-section"><a href="{{ path('home2') }}#contacto">Contacto</a></li>
-                        {% block user %}
                         <li><a href="{{ path('login') }}">Acceder</a></li>
-                        {% endblock %}
                     </ul>
                     <a class="menu-trigger">
                         <span>Menú</span>
                     </a>
+                    {% else %}
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="{{ path('home2') }}#top" class="active">Inicio</a></li>
+                        <li><a href="{{ path('catalogo_cursos') }}">Catálogo</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('catalogo_cursos', {user: app.user}) }}#info-title">Mis cursos</a></li>
+                        <li><a href="{{ path('profile') }}"><i class="fa fa-user"></i></a></li>
+                    </ul>
+                    <a class="menu-trigger">
+                        <span>Menú</span>
+                    </a>
+                    {% endif %}
                     {% endblock %}
                 </nav>
             </div>
