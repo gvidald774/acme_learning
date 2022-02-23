@@ -1,2 +1,3 @@
 * Fix image resizing
-* Arreglar lo de vich
+* Sacar los cursos por AJAX y que se puedan filtrar y tal y pascual
+* Terminar el crear curso ni que sea por tener algo de javaescrít
