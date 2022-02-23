@@ -81,17 +81,17 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <a href="{{ path('home2') }}" class="logo">
+                        <a href="{{ path('home') }}" class="logo">
                             ACME Learning
                         </a>
                     {% block menu %}
                     {% if app.user == null %}
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="{{ path('home2') }}#top" class="active">Inicio</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('home') }}#top" class="active">Inicio</a></li>
                         <li><a href="{{ path('catalogo_cursos') }}">Cursos</a></li>
-                        <li class="scroll-to-section"><a href="{{ path('home2') }}#info-title">Información</a></li>
-                        <li class="scroll-to-section"><a href="{{ path('home2') }}#galeria">Imágenes</a></li>
-                        <li class="scroll-to-section"><a href="{{ path('home2') }}#contacto">Contacto</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('home') }}#info-title">Información</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('home') }}#galeria">Imágenes</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('home') }}#contacto">Contacto</a></li>
                         <li><a href="{{ path('login') }}">Acceder</a></li>
                     </ul>
                     <a class="menu-trigger">
@@ -99,7 +99,7 @@
                     </a>
                     {% else %}
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="{{ path('home2') }}#top" class="active">Inicio</a></li>
+                        <li class="scroll-to-section"><a href="{{ path('home') }}#top" class="active">Inicio</a></li>
                         <li><a href="{{ path('catalogo_cursos') }}">Catálogo</a></li>
                         <li class="scroll-to-section"><a href="{{ path('catalogo_cursos', {user: app.user.id}) }}">Mis cursos</a></li>
                         <li><a href="{{ path('profile') }}"><i class="fa fa-user"></i></a></li>

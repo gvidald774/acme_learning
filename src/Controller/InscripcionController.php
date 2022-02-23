@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,8 +18,9 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class InscripcionController extends AbstractController
 {
     #[Route('/inscripcion/{id}', name: 'inscripcion')]
-    public function index(int $id, CursoRepository $cursos, Request $request): Response
+    public function index(int $id, CursoRepository $cursos, Request $request, ManagerRegistry $doctrine): Response
     {
+        $entityManager = $doctrine->getManager();
         $curso = $cursos->find($id);
 
         $inscripcion = new Plaza();
@@ -41,7 +43,10 @@ class InscripcionController extends AbstractController
             $inscripcion = $formularino->getData();
 
             $inscripcion->setIdAlumno($this->getUser());
-            $inscripcion->setIdCurso($cursos->getId());
+            $inscripcion->setIdCurso($curso);
+
+            $entityManager->persist($inscripcion);
+            $entityManager->flush();
             
             return $this->redirectToRoute('profile');
         }
