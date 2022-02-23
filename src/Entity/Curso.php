@@ -11,6 +11,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: CursoRepository::class)]
 #[Vich\Uploadable]
+/**
+ * @ORM\Entity
+ * @Vich\Uploadable
+ */
 class Curso
 {
     #[ORM\Id]
@@ -97,9 +101,15 @@ class Curso
     #[Groups(['curso'])]
     private $descripcion;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(type: 'string')]
     private $imagen;
 
+    /**
+     * @Vich\UploadableField(mapping="imagen_curso", fileNameProperty: "imagen")
+     */
     #[Vich\UploadableField(mapping: 'imagen_curso', fileNameProperty: 'imagen')]
     private $imageFile = null;
 
