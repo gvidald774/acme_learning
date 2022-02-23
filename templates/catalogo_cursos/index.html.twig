@@ -21,7 +21,7 @@
             <div class="row g-5">
                 {% for curso in cursos %}
                 <div class="col-6">
-                    <a href="/cursos/{{ curso.id }}"><div class="curso p-5 bg-ruby overflow-hidden">
+                    <a href="/cursos/d/{{ curso.id }}"><div class="curso p-5 bg-ruby overflow-hidden">
                     <img src="/images/cursos/{{ curso.imagen }}" class="img-responsive" style="height:100px;">
                     <h5>{{ curso.titulo }}</h5>
                     {% if curso.descripcion|length > 50 %}

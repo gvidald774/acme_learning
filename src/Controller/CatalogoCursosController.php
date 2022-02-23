@@ -21,7 +21,22 @@ class CatalogoCursosController extends AbstractController
                              ['cursos' => $cursos]);
     }
 
-    #[Route('/cursos/{id}', name: 'detalles_curso')]
+    #[Route('/cursos/{id}', name: 'mis_cursos')]
+    public function mis_cursos(CursoRepository $cursos_repo): Response
+    {
+        if (in_array('profesor', $this->getUser()->getRoles(), true)) {
+            $cursos = $cursos_repo->findBy(array('profesor' => $this->getUser()->getId()));
+        }
+        else if (in_array('alumno', $this->getUser()->getRoles(), true)) {
+            $cursos = $cursos_repo->findAll();
+        }
+
+
+        return $this->render('catalogo_cursos/index.html.twig',
+                             ['cursos' => $cursos]);
+    }
+
+    #[Route('/cursos/d/{id}', name: 'detalles_curso')]
     public function detalles(CursoRepository $cursos_repo, int $id): Response
     {
         $curso = $cursos_repo->find($id);
