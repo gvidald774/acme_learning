@@ -60,14 +60,14 @@ class Plaza
         return $this;
     }
 
-    public function getIdGrupo(): ?Grupo
+    public function getIdCurso(): ?Curso
     {
-        return $this->id_grupo;
+        return $this->id_curso;
     }
 
-    public function setIdGrupo(?Grupo $id_grupo): self
+    public function setIdCurso(?Curso $id_curso): self
     {
-        $this->id_grupo = $id_grupo;
+        $this->id_curso = $id_curso;
 
         return $this;
     }

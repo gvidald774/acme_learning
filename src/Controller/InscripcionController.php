@@ -39,6 +39,9 @@ class InscripcionController extends AbstractController
         if ($formularino->isSubmitted() && $formularino->isValid())
         {
             $inscripcion = $formularino->getData();
+
+            $inscripcion->setIdAlumno($this->getUser());
+            $inscripcion->setIdCurso($cursos->getId());
             
             return $this->redirectToRoute('profile');
         }

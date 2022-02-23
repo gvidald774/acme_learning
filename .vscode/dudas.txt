@@ -1,4 +1,1 @@
-* Intentar que se vean las imágenes (de perfil y de cursos)
-* Montar el sistema de autenticación para lo de los usuarios
-* Agregar el usuario al formulario de inscripción para subirlo a la base de datos
-* Montar lo de "mis cursos" y todo eso
+* Cambiar home por home2 o viceversa
