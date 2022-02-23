@@ -35,6 +35,10 @@ class Plaza
     #[ORM\Column(type: 'array', nullable: true)]
     private $documentos;
 
+    /**
+     * Por lo que sea Vich no está actualizado a los atributos (?) excepto que en la documentación pone que sí (??) pero vamos a mí no me ha funcionado (???)
+     * @Vich\UploadableField(mapping="archivos_plaza",fileNameProperty="documentos")
+     */
     #[Vich\UploadableField(mapping: 'archivos_plaza', fileNameProperty: 'documentos')]
     private $documentoFile = null;
 

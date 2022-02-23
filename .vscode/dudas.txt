@@ -1,1 +1,2 @@
-* Cambiar home por home2 o viceversa
+* Fix image resizing
+* Arreglar lo de vich

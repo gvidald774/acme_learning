@@ -19,6 +19,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[Vich\Uploadable]
+/**
+ * @Vich\Uploadable
+ */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -52,6 +55,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', nullable: true)] // Change to route
     private $foto;
 
+    /**
+     * Por lo que sea Vich solo funciona con anotaciones
+     * @Vich\UploadableField(mapping="imagen_perfil",fileNameProperty="foto")
+     */
     #[Vich\UploadableField(mapping: 'imagen_perfil', fileNameProperty: 'foto')]
     private $imageFile = null;
 
