@@ -79,7 +79,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isVerified = false;
 
-    #[ORM\Column(type: 'string', length: 31, nullable: true, columnDefinition: "enum('m','f','x'")]
+    #[ORM\Column(type: 'string', length: 31, nullable: true, columnDefinition: "enum('m','f','x')")]
     private $genero;
 
     public function __construct()

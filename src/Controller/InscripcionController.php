@@ -12,7 +12,7 @@ use App\Repository\GrupoRepository;
 use App\Entity\Grupo;
 use App\Entity\Plaza;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class InscripcionController extends AbstractController
@@ -20,6 +20,8 @@ class InscripcionController extends AbstractController
     #[Route('/inscripcion/{id}', name: 'inscripcion')]
     public function index(int $id, CursoRepository $cursos, Request $request, ManagerRegistry $doctrine): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ALUMNO');
+
         $entityManager = $doctrine->getManager();
         $curso = $cursos->find($id);
 
@@ -28,10 +30,7 @@ class InscripcionController extends AbstractController
         $form = $this->createFormBuilder($inscripcion);
         if($curso->getDocumentos() == true)
         {
-            $form->add('documentos',FileType::class,
-            [
-               'data_class' => null 
-            ]);
+            $form->add('texto',TextType::class);
         }
         $form->add('submit',SubmitType::class);
 
@@ -44,6 +43,7 @@ class InscripcionController extends AbstractController
 
             $inscripcion->setIdAlumno($this->getUser());
             $inscripcion->setIdCurso($curso);
+            $inscripcion->setEstado("Inscrito");
 
             $entityManager->persist($inscripcion);
             $entityManager->flush();

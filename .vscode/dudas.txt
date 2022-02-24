@@ -1,3 +1,18 @@
+<<<<<<< HEAD
 * Fix image resizing
 * Sacar los cursos por AJAX y que se puedan filtrar y tal y pascual
 * Terminar el crear curso ni que sea por tener algo de javaescrít
+=======
+x Arreglar el resizing de las imágenes
+x El encoding de la Base de Datos
+
+1 Modificar perfil ¿hecho?
+
+2 Firewall para inscribirse en cursos
+2 Firewall para ver Mis Cursos (?) o weno no, da iwá (si es profesor añadir botón)
+
+3 Coger los cursos por AJAX ¿hecho? no, pero bueno.
+3 Terminar el formulario de creación de curso con una sola reserva y un solo grupo
+
+4 Filtros, búsqueda, etcétera
+>>>>>>> e372cd6ff851ab8db2c368bed6adee8e5b552d79

@@ -32,15 +32,8 @@ class Plaza
     #[ORM\Column(type: 'integer', nullable: true)]
     private $valoracion;
 
-    #[ORM\Column(type: 'array', nullable: true)]
-    private $documentos;
-
-    /**
-     * Por lo que sea Vich no está actualizado a los atributos (?) excepto que en la documentación pone que sí (??) pero vamos a mí no me ha funcionado (???)
-     * @Vich\UploadableField(mapping="archivos_plaza",fileNameProperty="documentos")
-     */
-    #[Vich\UploadableField(mapping: 'archivos_plaza', fileNameProperty: 'documentos')]
-    private $documentoFile = null;
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $texto;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $estado;
@@ -106,14 +99,14 @@ class Plaza
         return $this;
     }
 
-    public function getDocumentos()
+    public function getTexto()
     {
-        return $this->documentos;
+        return $this->texto;
     }
 
-    public function setDocumentos($documentos): self
+    public function setTexto($texto): self
     {
-        $this->documentos = $documentos;
+        $this->texto = $texto;
 
         return $this;
     }
@@ -128,19 +121,6 @@ class Plaza
         $this->estado = $estado;
 
         return $this;
-    }
-
-    public function getDocumentoFile(): ?File
-    {
-        return $this->documentoFile;
-    }
-
-    /**
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
-     */
-    public function setDocumentoFile(?File $documentoFile = null): void
-    {
-        $this->documentoFile = $documentoFile;
     }
 
     /**
@@ -172,4 +152,19 @@ class Plaza
 
         return $this;
     }
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        list(
+            $this->id
+        ) = unserialize($serialized);
+    }
+    
 }

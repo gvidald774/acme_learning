@@ -8,7 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
-use App\Controller\Admin\Fields\MultipleFileField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class PlazaCrudController extends AbstractCrudController
 {
@@ -23,21 +23,19 @@ class PlazaCrudController extends AbstractCrudController
         return [
             // id_alumno
             AssociationField::new('id_alumno'),
-            // id_grupo
-            AssociationField::new('id_grupo'),
+            // id_curso
+            AssociationField::new('id_curso'),
             // puesto
             IntegerField::new('puesto'),
             // valoracion
             NumberField::new('valoracion'),
             // documentos
-            MultipleFileField::new('documentos'),
+            TextField::new('texto'),
             // estado
             ChoiceField::new('estado')->setChoices([ // Por determinar
-                'Estados' => [
                     'A' => 'A',
                     'B' => 'B',
                     'Canceladísimo' => 'C'
-                ]
             ])
         ];
     }

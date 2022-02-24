@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="{{ asset('css/custom-frontpage.css') }}" />
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/modifica_usuario.js') }}"></script>
+{% endblock %}
+
 {% block content %}
 
 <div class="container">
@@ -34,21 +39,27 @@
                     <p>Pues mira, si no fuese yo un cabezahueca, aquí iría un calendario que haría las veces de planner, donde el usuario consulta pues las clases que tiene pronto y tal. Estaría bien. Pero como soy un vago pues no está. Llamémoslo placeholder.</p>
                 </div>
                 <div class="tab-pane fade" id="navi-datos" role="tabpanel">
-                    <div class="formulario-perfil">
+                    <div class="datos-perfil">
                         <div class="row">
                             <ul>
-                                <li>Nombre: {{ user.nombre }}</li>
-                                <li>Apellidos: {{ user.apellido1 }} {{ user.apellido2 }}</li>
+                                <li>Nombre: <div class="datos-usuario" id="nombre">{{ user.nombre }}</div></li>
+                                <li>Apellidos: <div class="datos-usuario" id="apellido1">{{ user.apellido1 }}</div><div class="datos-usuario" id="apellido2">{{ user.apellido2 }}</div></li>
                                 <li>Datos de contacto:
                                     <ul>
-                                        <li>Teléfono: {{ user.telefono }}</li>
+                                        <li>Teléfono: <div class="datos-usuario" id="tfn">{{ user.telefono }}</div></li>
                                         <li>Correo: {{ user.email }}</li>
+                                        <li>Localidad: <div class="datos-usuario" id="loc">{{ user.localidad }}</div></li>
                                     </ul>
                                 </li>
+                            </ul>
                         </div>
                     </div>
                     {% if app.user == user %}
+                    <div class="d-none formulario-perfil">
+                        {{ form(form) }}
+                    </div>
                     <button id="boton-modificar" class="btn">Modificar</button>
+                    <button class="btn d-none" id="boton-guardar">Guardar datos</button>
                     <a id="salir" href="{{ path('app_logout') }}">Salir</a>
                     {% endif %}
                 </div>

@@ -26,9 +26,9 @@ class UserCrudController extends AbstractCrudController
             // roles
             ChoiceField::new('roles')->allowMultipleChoices()->setChoices([
                 //'Roles' => [
-                    'Admin' => 'Admin',
-                    'Profesor' => 'Profesor',
-                    'Alumno' => 'Alumno',
+                    'Admin' => 'ROLE_ADMIN',
+                    'Profesor' => 'ROLE_PROFESOR',
+                    'Alumno' => 'ROLE_ALUMNO',
                 //]
             ]),
             // password
@@ -43,8 +43,8 @@ class UserCrudController extends AbstractCrudController
             TextField::new('apellido2'),
             // foto
             ImageField::new('foto')
-                ->setUploadDir('assets\images')
-                ->setBasePath('assets\images'),
+                ->setUploadDir('public\assets\images\usuarios')
+                ->setBasePath('public\assets\images\usuarios'),
             // AÑADIR PAÍS (?)
             // localidad
             TextField::new('localidad'),

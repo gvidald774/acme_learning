@@ -21,6 +21,9 @@ class CreaCursoController extends AbstractController
     #[Route('/crea/curso', name: 'crea_curso')]
     public function index(): Response
     {
+        // Autenticación
+        $this->denyAccessUnlessGranted('profesor');
+
         $curso = new Curso();
         $form = $this->createFormBuilder($curso)
             ->add('titulo', TextType::class)

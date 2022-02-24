@@ -336,36 +336,6 @@ class Curso
         return $this;
     }
 
-    /**
-     * @return Collection|Grupo[]
-     */
-    public function getGrupos(): Collection
-    {
-        return $this->grupos;
-    }
-
-    public function addGrupo(Grupo $grupo): self
-    {
-        if (!$this->grupos->contains($grupo)) {
-            $this->grupos[] = $grupo;
-            $grupo->setCurso($this);
-        }
-
-        return $this;
-    }
-
-    public function removeGrupo(Grupo $grupo): self
-    {
-        if ($this->grupos->removeElement($grupo)) {
-            // set the owning side to null (unless already changed)
-            if ($grupo->getCurso() === $this) {
-                $grupo->setCurso(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getDescripcion(): ?string
     {
         return $this->descripcion;

@@ -18,6 +18,8 @@
     <script src="{{ asset('/js/video.js') }}"></script>
     <script src="{{ asset('/js/slick-slider.js') }}"></script>
     <script type="module" src="{{ asset('/js/custom.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script>
         $('.nav li:first').addClass('active');
 
@@ -68,8 +70,8 @@
             if ((requestedHref.length === 0 || baseHref === requestedHref) && this.hash !== "") {
                 event.preventDefault();
                 var hash = this.hash;
-                ...
             }
+        });
 
     </script>
 {% endblock %}
@@ -101,7 +103,7 @@
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{ path('home') }}#top" class="active">Inicio</a></li>
                         <li><a href="{{ path('catalogo_cursos') }}">Catálogo</a></li>
-                        <li class="scroll-to-section"><a href="{{ path('catalogo_cursos', {user: app.user.id}) }}">Mis cursos</a></li>
+                        <li><a href="{{ path('mis_cursos', {id: app.user.id}) }}">Mis cursos</a></li>
                         <li><a href="{{ path('profile') }}"><i class="fa fa-user"></i></a></li>
                     </ul>
                     <a class="menu-trigger">
