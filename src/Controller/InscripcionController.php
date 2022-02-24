@@ -20,6 +20,8 @@ class InscripcionController extends AbstractController
     #[Route('/inscripcion/{id}', name: 'inscripcion')]
     public function index(int $id, CursoRepository $cursos, Request $request, ManagerRegistry $doctrine): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ALUMNO');
+
         $entityManager = $doctrine->getManager();
         $curso = $cursos->find($id);
 

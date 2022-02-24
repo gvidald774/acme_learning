@@ -103,7 +103,7 @@
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{ path('home') }}#top" class="active">Inicio</a></li>
                         <li><a href="{{ path('catalogo_cursos') }}">Catálogo</a></li>
-                        <li class="scroll-to-section"><a href="{{ path('catalogo_cursos', {user: app.user.id}) }}">Mis cursos</a></li>
+                        <li><a href="{{ path('mis_cursos', {id: app.user.id}) }}">Mis cursos</a></li>
                         <li><a href="{{ path('profile') }}"><i class="fa fa-user"></i></a></li>
                     </ul>
                     <a class="menu-trigger">

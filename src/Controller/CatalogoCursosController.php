@@ -24,6 +24,10 @@ class CatalogoCursosController extends AbstractController
     #[Route('/cursos/{id}', name: 'mis_cursos')]
     public function mis_cursos(CursoRepository $cursos_repo): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        $cursos = $cursos_repo->findAll();
+
         if (in_array('profesor', $this->getUser()->getRoles(), true)) {
             $cursos = $cursos_repo->findBy(array('profesor' => $this->getUser()->getId()));
         }
@@ -45,7 +49,7 @@ class CatalogoCursosController extends AbstractController
                             ['curso' => $curso]);
     }
 
-    #[Route('/cursos/todos/todos', name: 'trae_cursos')]
+    #[Route('/cursos/todos/todos', options: ['expose' => 'true'],  name: 'trae_cursos')]
     public function traeteCursos(CursoRepository $cursos_repo, SerializerInterface $serializer): Response
     {
         $cursos = $cursos_repo->findAll();
@@ -54,6 +58,6 @@ class CatalogoCursosController extends AbstractController
                 return $object->getId();
             }
         ]);
-        return new Response(var_dump($cursos_serializados));
+        return new Response($cursos_serializados);
     }
 }

@@ -8,7 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
-use App\Controller\Admin\Fields\MultipleFileField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class PlazaCrudController extends AbstractCrudController
 {
