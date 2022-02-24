@@ -44,6 +44,7 @@ class InscripcionController extends AbstractController
 
             $inscripcion->setIdAlumno($this->getUser());
             $inscripcion->setIdCurso($curso);
+            $inscripcion->setEstado("Inscrito");
 
             $entityManager->persist($inscripcion);
             $entityManager->flush();

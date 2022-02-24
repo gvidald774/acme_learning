@@ -18,6 +18,8 @@
     <script src="{{ asset('/js/video.js') }}"></script>
     <script src="{{ asset('/js/slick-slider.js') }}"></script>
     <script type="module" src="{{ asset('/js/custom.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script>
         $('.nav li:first').addClass('active');
 
@@ -68,8 +70,8 @@
             if ((requestedHref.length === 0 || baseHref === requestedHref) && this.hash !== "") {
                 event.preventDefault();
                 var hash = this.hash;
-                ...
             }
+        });
 
     </script>
 {% endblock %}

@@ -1,2 +1,12 @@
-* Fix image resizing
-* Arreglar lo de vich
+x Arreglar el resizing de las imágenes
+x El encoding de la Base de Datos
+
+1 Modificar perfil
+
+2 Firewall para inscribirse en cursos
+2 Firewall para ver Mis Cursos (?) o weno no, da iwá (si es profesor añadir botón)
+
+3 Coger los cursos por AJAX
+3 Terminar el formulario de creación de curso con una sola reserva y un solo grupo
+
+4 Filtros, búsqueda, etcétera
