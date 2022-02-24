@@ -30,7 +30,7 @@ class PlazaCrudController extends AbstractCrudController
             // valoracion
             NumberField::new('valoracion'),
             // documentos
-            MultipleFileField::new('documentos'),
+            TextField::new('texto'),
             // estado
             ChoiceField::new('estado')->setChoices([ // Por determinar
                     'A' => 'A',
