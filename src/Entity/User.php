@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use App\Validator as AcmeAssert;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
@@ -28,41 +27,32 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    #[Groups(['user'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
-    #[Groups(['user'])]
     private $email;
 
     #[ORM\Column(type: 'json')]
-    #[Groups(['user'])]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
-    #[Groups(['user'])]
     private $password;
 
     #[ORM\Column(type: 'string', length: 9, unique: true)]
     #[Assert\NotBlank]
     #[AcmeAssert\dni_valido(options: ['mode' => 'loose'])]
-    #[Groups(['user'])]
     private $dni;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups(['user'])]
     private $nombre;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups(['user'])]
     private $apellido1;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups(['user'])]
     private $apellido2;
 
     #[ORM\Column(type: 'string', nullable: true)] // Change to route
-    #[Groups(['user'])]
     private $foto;
 
     /**
@@ -73,11 +63,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $imageFile = null;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups(['user'])]
     private $telefono;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    #[Groups(['user'])]
     private $localidad;
 
     #[ORM\OneToMany(mappedBy: 'profesor', targetEntity: Curso::class)]

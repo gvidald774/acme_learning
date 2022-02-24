@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+
 #[ORM\Entity(repositoryClass: PlazaRepository::class)]
 #[Vich\Uploadable]
 class Plaza
@@ -172,4 +173,5 @@ class Plaza
 
         return $this;
     }
+    
 }
