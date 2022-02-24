@@ -6,6 +6,7 @@ $(function()
 
     const route = Routing.generate('trae_cursos');
     
+    // Pasar parámetros y tal
     $.ajax({
         url: route,
         context: $("#cursos")

@@ -2,5 +2,6 @@
     * Terminar el Crear Curso
         * Cambiar la imagen del mapa a background imagen para que sea bien responsive bien chingona
     * Añadir diversos filtros al AJAX
+        * Filtros posibles: por categoría, precio ascendente/descendente, plazas ascendentes/descendentes, fecha próxima, y un cuadro de búsqueda
 * Lo otro:
-    * Pues ni idea oye
+    * Examinar la rúbrica a ver qué podemos hacer (bastante poco la verdad)

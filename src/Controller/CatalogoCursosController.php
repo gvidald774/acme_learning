@@ -50,8 +50,15 @@ class CatalogoCursosController extends AbstractController
     }
 
     #[Route('/cursos/todos/todos', options: ['expose' => 'true'],  name: 'trae_cursos')]
-    public function traeteCursos(CursoRepository $cursos_repo, SerializerInterface $serializer): Response
+    public function traeteCursos(CursoRepository $cursos_repo, SerializerInterface $serializer, Request $request): Response
     {
+
+        $json = array();
+
+        if ($request->isXmlHttpRequest()) {
+            // Check if Blah, blah, blah (?)
+            // Tendría que pasarle los parámetros y tal y pascual, ¿no?
+        }
         $cursos = $cursos_repo->findAll();
         $cursos_serializados = $serializer->serialize($cursos, 'json', [
             'circular_reference_handler' => function($object) {

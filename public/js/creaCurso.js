@@ -311,6 +311,8 @@ $(function()
         }
     }
 
+    // Hay que averiguarse la página 2 también o algo
+
     function muestraPagina(id)
     {
         $("div[id^=pagina]").hide();
