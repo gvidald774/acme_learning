@@ -22,7 +22,7 @@ class CreaCursoController extends AbstractController
     public function index(): Response
     {
         // Autenticación
-        $this->denyAccessUnlessGranted('profesor');
+        $this->denyAccessUnlessGranted('ROLE_PROFESOR');
 
         $curso = new Curso();
         $form = $this->createFormBuilder($curso)

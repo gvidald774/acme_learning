@@ -20,8 +20,6 @@ class ReservaCrudController extends AbstractCrudController
         return [
             // id_aula
             AssociationField::new('id_aula'),
-            // id_grupo
-            AssociationField::new('id_grupo'),
             // id_tramo
             AssociationField::new('id_tramo'),
             // precio

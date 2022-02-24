@@ -95,4 +95,9 @@ class Aula
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->codigo;
+    }
 }
