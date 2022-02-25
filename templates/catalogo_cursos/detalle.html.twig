@@ -33,10 +33,10 @@
 
 {% block content %}
 <h1 class="mx-5 p-5">{{ curso.titulo }}</h1>
-<div class="row">
-    <div class="col-7 border mx-5 p-2">
+<div class="row mx-5 g-5">
+    <div class="col-12 col-lg-8 border p-2">
         <div class="row">
-            <img src="{{ vich_uploader_asset(curso) }}" class="img-responsive" style="height: 500px;"> {# La imagen del curso #}
+            <img src="{{ vich_uploader_asset(curso) }}" class="img-responsive" alt="Imagen del curso {{ curso.titulo }}"> {# La imagen del curso #}
         </div>
         <div class="row">
             <p>{{ curso.descripcion|raw }}</p>
@@ -49,7 +49,7 @@
                             Objetivos
                         </button>
                     </h2>
-                    <div id="objetivos" class="accordion-collapse collapse show" aria-labelledby="objetivos-header" data-bs-parent="#acordeon-detalles-curso">
+                    <div id="objetivos" class="accordion-collapse collapse show" aria-labelledby="objetivos-header">
                         <div class="accordion-body overflow">
                             {{ curso.objetivos|raw }}
                         </div>
@@ -61,7 +61,7 @@
                             Contenidos
                         </button>
                     </h2>
-                    <div id="contenidos" class="accordion-collapse collapse" aria-labelledby="objetivos-header" data-bs-parent="#acordeon-detalles-curso">
+                    <div id="contenidos" class="accordion-collapse collapse" aria-labelledby="objetivos-header">
                         <div class="accordion-body overflow-visible">
                             {{ curso.contenido|raw }}
                         </div>
@@ -73,7 +73,7 @@
                             Requisitos
                         </button>
                     </h2>
-                    <div id="requisitos" class="accordion-collapse collapse" aria-labelledby="objetivos-header" data-bs-parent="#acordeon-detalles-curso">
+                    <div id="requisitos" class="accordion-collapse collapse" aria-labelledby="objetivos-header">
                         <div class="accordion-body overflow-visible">
                             {{ curso.requisitos|raw }}
                         </div>
@@ -85,8 +85,8 @@
             <div class="d-inline-flex flex-row-reverse"><a class="btn btn-light" href="{{ path('inscripcion', {id: curso.id}) }}">Unirse</a></div>
         </div>
     </div>
-    <div class="col-4">
-        <div class="row border">
+    <div class="col-12 col-lg-4">
+        <div class="row border border-rounded bg-light p-5 lh-lg  ml-5 mb-5">
             <ul>
                 <li><strong>Impartido por: </strong>{{ curso.profesor.nombre }} {{ curso.profesor.apellido1 }} {{ curso.profesor.apellido2 }}</li>
                 <li><strong>Categoría: </strong>{{ categoria }}</li>

@@ -97,7 +97,7 @@ class CreaCursoController extends AbstractController
             ])
             ->add('horas', IntegerType::class)
             ->add('documentos', CheckboxType::class, [
-                'label' => '¿Requiere documentación?',
+                'label' => '¿Requiere documentación?', // Documentación u otra cosa, no?
                 'required' => false,
             ])
             ->add('contenido', CKEditorType::class)

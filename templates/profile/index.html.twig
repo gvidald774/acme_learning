@@ -17,7 +17,7 @@
 <div class="container">
     <div class="d-flex flex-row-reverse align-items-center">
         <div class="image w-25 m-3 p-3">
-            <img src="{{ vich_uploader_asset(user) }}" class="image-fluid"> {# La imagen del usuario #}
+            <img src="{{ vich_uploader_asset(user) }}" class="image-fluid" alt="Imagen del perfil de {{ user.nombre }} {{ user.apellido1 }} {{ user.apellido2 }}"> {# La imagen del usuario #}
         </div>
         <div class="name align-items-center"> 
             {% if app.user == user %}

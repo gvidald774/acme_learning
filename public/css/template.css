@@ -212,7 +212,7 @@ header
 */
 
 .background-header {
-  background-color: lightgray!important;
+  background-color: #C02F1B!important;
   height: 80px!important;
   position: fixed!important;
   top: 0!important;
@@ -222,12 +222,14 @@ header
 }
 
 .background-header .main-nav .nav li a {
-  color: #1c1c1c!important;
+  color: lightgray!important;
+  text-shadow: 0px 0px 2px black;
 }
 
 .background-header .logo,
 .background-header .main-nav .nav li a {
-  color: #1c1c1c!important;
+  color: lightgray!important;
+  text-shadow: 0px 0px 2px black;
 }
 
 .background-header .main-nav .nav li:hover a {
@@ -307,6 +309,7 @@ header
   font-size: 14px;
   text-transform: uppercase;
   color: lightgray;
+  text-shadow: 0px 0px 2px black;
   -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -o-transition: all 0.5s ease 0s;
@@ -467,7 +470,7 @@ header
 
 @media (max-width: 767px) {
   .header-area .main-nav .logo {
-    color: #1c1c1c;
+    color: lightgray;
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
@@ -478,7 +481,7 @@ header
     width: 100%;
   }
   .header-area {
-    background-color: lightgray;
+    background-color: #C02F1B;
     padding: 0px 15px;
     height: 100px;
     box-shadow: none;
@@ -514,7 +517,7 @@ header
   }*/
   .header-area .main-nav .nav li {
     width: 100%;
-    background: lightgray;
+    background: #C02F1B;
     border-bottom: 1px solid lightslategray;
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -524,11 +527,12 @@ header
     line-height: 50px !important;
     padding: 0px !important;
     border: none !important;
-    background: lightgray !important;
-    color: #1c1c1c !important;
+    background: #C02F1B !important;
+    color: lightgray !important;
+    text-shadow: 0px 0px 2px black;
   }
   .header-area .main-nav .nav li a:hover {
-    background: lightgray !important;
+    background: #C02F1B !important;
     color: orange!important;
   }
 }

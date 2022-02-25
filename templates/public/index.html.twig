@@ -34,11 +34,11 @@
         </div>
     </section>
     {# Información texto #}
-    <section id="info-title" class=" w-75 my-5 ml-5">
+    <section id="info-title" class="w-75 my-5 ml-5">
         <h1>Informaciones</h1>
     </section>
     <section id="info-content" class="info-centrar parallax-1">
-    <div class="w-75 info-centrar p-5">
+    <div class="w-100 info-centrar p-5">
         <div class="row bg-light m-5 p-5 rounded-5">
             <div class="col-9 my-auto">
                 <p class="lead lh-lg mb-5">Hola esta es información sobre esta institución educativa, apoyamos el conocimiento y todo eso también y mira qué guay la foto que tenemos aquí al lado venga un abrazo</p>
@@ -50,7 +50,7 @@
         </div>
         <div class="row bg-light m-5 p-5 rounded-5">
             <div class="col-3 my-auto">
-                <img src="{{ asset('/images/course-02.jpg') }}" />
+                <img src="{{ asset('/images/course-02.jpg') }}"/>
             </div>
             <div class="col-9 my-auto">
                 <p class="lead lh-lg mb-5">Este es un segundo asunto sobre la imagen que tenemos, esta vez a la izquierda, no a la derecha. Si estuviera a la izquierda, sería lo de arriba.</p>
@@ -104,7 +104,7 @@
         </div>
     </section>-->
     <section id="galeria" class="mx-auto">
-        <div id="carrusel_deportivo" class="carousel slide w-50 mx-auto" data-ride="carousel">
+        <div id="carrusel_deportivo" class="carousel slide w-75 mh-50 mx-auto" data-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carrusel_deportivo" data-bs-slide-to="0" class="active" aria-current="true"></li>
                 <button type="button" data-bs-target="#carrusel_deportivo" data-bs-slide-to="1"></li>
@@ -113,28 +113,28 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ asset('/images/front.jpg') }}">
+                    <img class="d-block w-100" src="{{ asset('/images/front.jpg') }}" alt="Una imagen de la fachada de la escuela">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Edificios con clase</h5>
                         <p>La arquitectura por sí sola ya misma en sí misma como que suelta ahí una cosa, ¿no?, como un mensaje, en plan, pues... eso.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('/images/study-hall.jpg') }}">
+                    <img class="d-block w-100" src="{{ asset('/images/study-hall.jpg') }}" alt="Una imagen de la zona común de estudio">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Amplias zonas comunes</h5>
                         <p>Zonas maravillosas donde congeniar con tus compañeros estudiantes, estudiar, terminar trabajos de última hora, comerse unas pipas, ser perseguido por el servicio de limpieza, esconderse del siniestro conserje del turno de noche, etcétera.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('/images/conference-class.jpg') }}">
+                    <img class="d-block w-100" src="{{ asset('/images/conference-class.jpg') }}" alt="Una imagen de un aula de estilo conferencia">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Clases modernas</h5>
                         <p>Clases dispuestas para la comodidad y atención de los asistentes.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('/images/art-thingy.jpg') }}">
+                    <img class="d-block w-100" src="{{ asset('/images/art-thingy.jpg') }}" alt="Una imagen de un aula de arte">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Diversidad de formatos</h5>
                         <p>Instalaciones de todo tipo, para cursos de todo tipo.</p5>
@@ -152,26 +152,26 @@
         </div>
     </section>
     {# Paneles chupifantásticos - cambiar color a rojo #}
-    <section id="paneles" class="parallax-2 d-flex justify-content-evenly">
-        <div class="col-3 panel-info bg-ruby p-5 my-5">
+    <section id="paneles" class="row parallax-2 d-lg-flex justify-content-evenly">
+        <div class="col-10 col-md-5 col-lg-3 mx-auto panel-info bg-ruby p-5 my-5">
             <img src="{{ asset('images/meeting-01.jpg')}}">
             <h5>Lecciones de importancia</h5>
             <p>Ofrecemos lecciones de importancia y sitios para que tomes los apuntes sentadico o sentadica.</p>
         </div>
-        <div class="col-3 panel-info bg-ruby p-5 my-5">
+        <div class="col-10 col-md-5 col-lg-3 mx-auto panel-info bg-ruby p-5 my-5">
             <img src="{{ asset('images/meeting-02.jpg')}}">
             <h5>Variedad de clases</h5>
             <p>Ofrecemos clases de todos los tamaños y formatos.</p>
         </div>
-        <div class="col-3 panel-info bg-ruby p-5 my-5">
+        <div class="col-10 col-md-5 col-lg-3 mx-auto panel-info bg-ruby p-5 my-5">
             <img src="{{ asset('images/meeting-03.jpg')}}">
             <h5>Espacios abiertos</h5>
             <p>Pa que camines.</p>
         </div>
-        <!--<div class="col-3 panel-info bg-light p-5 my-5">
+        <div class="col-10 col-md-5 d-lg-none mx-auto panel-info bg-ruby p-5 my-5">
             <img src="{{ asset('images/meeting-04.jpg')}}">
             <p>Blablabla lo mismo que dice en el otro extremo</p>
-        </div>-->
+        </div>
     </section>
     {# Testimonios: Otro gallery o algo supongo sí #}
     {# Formulario de contacto #}

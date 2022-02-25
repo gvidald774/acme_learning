@@ -328,9 +328,6 @@ $(function()
         }
     }
 
-    // Ah y que no te deje pasar la página hasta que los valores estén correctos
-    // (fechas en su sitio, todo escrito, etcétera)
-
     /*    from = $("input[id^=form_f_ini]")
             .datepicker({
                 minDate: 0,
@@ -533,7 +530,7 @@ $(function()
             })
         }
     });
-    $("#form_f_ini_curso").datetimepicker({
+    $("#form_f_ini_curso").datetimepicker({ // Cambiar la duración? No, cambiar los tramos
         lang: 'es',
         dayOfWeekStart: 1,
         startDate: '+7',
@@ -571,11 +568,13 @@ $(function()
         }
     });
 
-    // Controles de generar reserva
+    // Controles de generar reserva... quitar?
 
+    /*
     $(".add-reserva").on("click",function()
     {
         $("<p>Normalmente aquí aparecería una segunda reserva, pero debido a la falta de tiempo no será posible. Sí he averiguado que se haría con clone(), pero las implicaciones en el backend y en el acceso a la base de datos son tan gargantuescas que no he visto la posibilidad de implementarlas a tiempo.</p>").appendTo("#pagina2");
     });
+    */
 
 })
