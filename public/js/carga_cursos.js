@@ -1,9 +1,6 @@
 $(function()
 {
 
-    // Y si hago un embed o algo y a tomar por culo...
-    // Eso ya lo tengo que ir viendo y gestionando
-
     const route = Routing.generate('trae_cursos');
     
     // Pasar parámetros y tal
@@ -46,4 +43,21 @@ $(function()
         $(this).html(divCompleto);
     })
 
+    const filtro = document.getElementById("filtro");
+    filtro.onkeyup = function()
+    {
+        const divs = $("div.curso");
+        console.log(divs);
+        for(let i = 0; i < divs.length; i++)
+        {
+            if(divs[i].innerHTML.indexOf(filtro.value)<0)
+            {
+                divs[i].classList.add("ocultar");
+            }
+            else
+            {
+                divs[i].classList.remove("ocultar");
+            }
+        }
+    }
 })
