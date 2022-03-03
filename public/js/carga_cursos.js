@@ -62,7 +62,7 @@ $(function()
         console.log(divs);
         for(let i = 0; i < divs.length; i++)
         {
-            if(divs[i].innerHTML.indexOf(filtro.value)<0)
+            if(divs[i].innerText.indexOf(filtro.value)<0)
             {
                 divs[i].classList.add("ocultar");
             }
