@@ -13,9 +13,23 @@
 <div class="row m-5">
     <section id="filtros" class=" col-12 mb-5 col-lg-3 border border-dark bg-ruby p-5">
         <input type="text" id="filtro" placeholder="Búsqueda...">
+        <div id="categorias">
+            <h5>Categorías</h5>
+            <label><input type="checkbox" value="0">000 - Ciencias de la Computación, Información y Obras Generales</label>
+            <label><input type="checkbox" value="1">100 - Filosofía y Psicología</label>
+            <label><input type="checkbox" value="2">200 - Religión, Teología</label>
+            <label><input type="checkbox" value="3">300 - Ciencias Sociales</label>
+            <label><input type="checkbox" value="4">400 - Lenguas</label>
+            <label><input type="checkbox" value="5">500 - Ciencias Básicas</label>
+            <label><input type="checkbox" value="6">600 - Tecnología y Ciencias Aplicadas</label>
+            <label><input type="checkbox" value="7">700 - Artes y recreación</label>
+            <label><input type="checkbox" value="8">800 - Literatura</label>
+            <label><input type="checkbox" value="9">900 - Historia y Geografía</label>
+        </div>
     </section>
     <div class="col-lg-1"></div>
     <section id="cursos" class="col-12 col-lg-8 border border-dark p-5">
+        <div id="loadingDiv" class="spinner-border" role="status"></div>
         {# Y aquí irían los cursos, que quizá lo suyo es pillarlos por AJAX. #}
         {#<div class="container overflow-hidden">
             <div class="row g-5">

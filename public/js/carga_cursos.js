@@ -3,6 +3,16 @@ $(function()
 
     const route = Routing.generate('trae_cursos');
     
+    $("#loadingDiv")
+        .ajaxStart(function()
+        {
+            $(this).show();
+        })
+        .ajaxStop(function()
+        {
+            $(this).hide();
+        })
+
     // Pasar parámetros y tal
     $.ajax({
         url: route,
@@ -32,7 +42,7 @@ $(function()
             {
                 var texto = obj.descripcion;
             }
-            element.innerHTML = "   <a href='/cursos/d/"+obj.id+"'><div class='curso p-5 overflow-hidden bg-ruby'>"
+            element.innerHTML = "   <a href='/cursos/d/"+obj.id+"'><div class='curso p-5 overflow-hidden bg-ruby' data-categoria="+obj.categoria+">"
                               + "   <div style='overflow: hidden;'><img src='/assets/images/cursos/"+obj.imagen+"' class='img-responsive mx-auto my-auto' alt='Imagen de "+obj.titulo+"'></div>"
                               + "   <h5>"+obj.titulo+"</h5>"
                               + "   <p class='overflow-hidden'>"+texto+"</p>"
@@ -46,6 +56,8 @@ $(function()
     const filtro = document.getElementById("filtro");
     filtro.onkeyup = function()
     {
+        // Placeholder porque los filtros no juegan bien entre sí, vaciar el otro
+        $("input:checkbox").removeAttr('checked');
         const divs = $("div.curso");
         console.log(divs);
         for(let i = 0; i < divs.length; i++)
@@ -60,4 +72,39 @@ $(function()
             }
         }
     }
+
+    $("#categorias").children().on("change",function()
+    {
+        // Placeholder porque los filtros no juegan bien entre sí, vaciar el otro
+        document.getElementById("filtro").value = "";
+        var selected = [];
+        $("#categorias input:checked").each(function()
+        {
+            selected.push($(this).attr("value"));
+        });
+        console.log("Se ven ahora las categorías marcadas... cuales? Ah!"+selected);
+        console.log(selected);
+
+        const divs = $("div.curso");
+        for(let i = 0; i < divs.length; i++)
+        {
+            if(selected.includes(divs[i].dataset.categoria))
+            {
+                divs[i].classList.remove("ocultar");
+            }
+            else
+            {
+                divs[i].classList.add("ocultar");
+            }
+        }
+        if(selected.length===0)
+        {
+            for(let i = 0; i < divs.length; i++)
+            {
+                divs[i].classList.remove("ocultar");
+            }
+        }
+
+    })
+
 })
